@@ -1,106 +1,1119 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Alliance Française San Cristóbal</title>
-  <link rel="stylesheet" href="styles.css"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Alliance Française de San Cristóbal de Las Casas - Cursos de francés, certificaciones DELF/DALF, programas de inmersión en Francia y Canadá.">
+    <title>Alliance Française San Cristóbal | Donde el Francés se Vive y se Comparte</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --rojo: #C8102E;
+            --rojo-oscuro: #9E0C24;
+            --negro: #1a1a1a;
+            --blanco: #ffffff;
+            --gris-claro: #f8f8f8;
+            --gris: #666;
+            --dorado: #c9a227;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Montserrat', sans-serif; color: var(--negro); line-height: 1.7; }
+        h1, h2, h3, h4 { font-family: 'Cormorant Garamond', serif; font-weight: 600; }
+        img { max-width: 100%; height: auto; }
+        a { text-decoration: none; color: inherit; }
+
+        /* HEADER */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: var(--blanco);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+        .header-inner {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        .logo-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--negro);
+        }
+        .logo-text span { color: var(--rojo); }
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        nav a {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--negro);
+            transition: color 0.3s;
+            position: relative;
+        }
+        nav a:hover { color: var(--rojo); }
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--rojo);
+            transition: width 0.3s;
+        }
+        nav a:hover::after { width: 100%; }
+        .nav-cta {
+            background: var(--rojo);
+            color: var(--blanco) !important;
+            padding: 0.6rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+        }
+        .nav-cta:hover { background: var(--rojo-oscuro); }
+        .nav-cta::after { display: none; }
+        .menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, rgba(200,16,46,0.9), rgba(158,12,36,0.95)), url('images/18.png') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--blanco);
+            padding: 6rem 2rem 4rem;
+        }
+        .hero-content { max-width: 900px; }
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+        .hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        .btn-white {
+            background: var(--blanco);
+            color: var(--rojo);
+        }
+        .btn-white:hover { background: var(--gris-claro); transform: translateY(-2px); }
+        .btn-outline {
+            border: 2px solid var(--blanco);
+            color: var(--blanco);
+            background: transparent;
+        }
+        .btn-outline:hover { background: var(--blanco); color: var(--rojo); }
+
+        /* SECTIONS */
+        section { padding: 6rem 2rem; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        .section-title h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--negro);
+        }
+        .section-title p {
+            font-size: 1.1rem;
+            color: var(--gris);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .section-title span { color: var(--rojo); }
+
+        /* BIENVENIDA */
+        .bienvenida { background: var(--gris-claro); }
+        .bienvenida-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        .bienvenida-img img {
+            border-radius: 15px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+        .bienvenida-text h3 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--negro);
+        }
+        .bienvenida-text p { margin-bottom: 1.5rem; color: var(--gris); }
+        .features-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        .feature-item i {
+            color: var(--rojo);
+            font-size: 1.2rem;
+        }
+
+        /* CURSOS */
+        .cursos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        .curso-card {
+            background: var(--blanco);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .curso-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+        .curso-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        .curso-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        .curso-card:hover .curso-img img { transform: scale(1.1); }
+        .curso-content {
+            padding: 2rem;
+        }
+        .curso-content h4 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--negro);
+        }
+        .curso-meta {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.85rem;
+            color: var(--gris);
+        }
+        .curso-meta i { color: var(--rojo); margin-right: 0.3rem; }
+        .curso-precio {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--rojo);
+            font-family: 'Cormorant Garamond', serif;
+        }
+        .curso-precio span {
+            font-size: 0.9rem;
+            font-weight: 400;
+            color: var(--gris);
+        }
+
+        /* PRECIOS TABLA */
+        .precios { background: var(--gris-claro); }
+        .tabla-precios {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--blanco);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+        }
+        .tabla-precios th {
+            background: var(--rojo);
+            color: var(--blanco);
+            padding: 1.2rem;
+            text-align: left;
+            font-weight: 600;
+        }
+        .tabla-precios td {
+            padding: 1rem 1.2rem;
+            border-bottom: 1px solid var(--gris-claro);
+        }
+        .tabla-precios tr:hover { background: var(--gris-claro); }
+        .tabla-precios tr:last-child td { border-bottom: none; }
+        .precio-destacado {
+            font-weight: 700;
+            color: var(--rojo);
+            font-size: 1.1rem;
+        }
+
+        /* ALIANZAS */
+        .alianzas-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        .alianza-card {
+            background: var(--blanco);
+            padding: 2.5rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+        .alianza-card:hover { transform: translateY(-5px); }
+        .alianza-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gris-claro);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+        }
+        .alianza-icon i {
+            font-size: 2rem;
+            color: var(--rojo);
+        }
+        .alianza-card h4 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+        .alianza-card p {
+            font-size: 0.9rem;
+            color: var(--gris);
+        }
+
+        /* INMERSIÓN */
+        .inmersion { background: linear-gradient(135deg, var(--negro) 0%, #2d2d2d 100%); color: var(--blanco); }
+        .inmersion .section-title h2 { color: var(--blanco); }
+        .inmersion .section-title p { color: rgba(255,255,255,0.7); }
+        .inmersion-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+        .inmersion-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 20px;
+            padding: 3rem;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .inmersion-card h4 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            color: var(--blanco);
+        }
+        .inmersion-card .ciudad {
+            color: var(--dorado);
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+        .inmersion-card p { color: rgba(255,255,255,0.8); margin-bottom: 1.5rem; }
+        .inmersion-detalles {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        .inmersion-detalle {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+        }
+        .inmersion-detalle i { color: var(--dorado); }
+        .inmersion-precio {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dorado);
+            margin-bottom: 1.5rem;
+        }
+
+        /* CERTIFICACIONES */
+        .certificaciones-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        .cert-info h3 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .cert-info p { color: var(--gris); margin-bottom: 1.5rem; }
+        .cert-badges {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .cert-badge {
+            text-align: center;
+        }
+        .cert-badge i {
+            font-size: 3rem;
+            color: var(--rojo);
+            margin-bottom: 0.5rem;
+        }
+        .cert-badge span {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        .cert-visual {
+            background: var(--gris-claro);
+            border-radius: 20px;
+            padding: 3rem;
+            text-align: center;
+        }
+        .cert-visual img {
+            border-radius: 10px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+
+        /* EQUIPO */
+        .equipo { background: var(--gris-claro); }
+        .equipo-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        .equipo-card {
+            background: var(--blanco);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+        .equipo-foto {
+            height: 300px;
+            overflow: hidden;
+        }
+        .equipo-foto img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+        }
+        .equipo-info {
+            padding: 1.5rem;
+        }
+        .equipo-info h4 {
+            font-size: 1.4rem;
+            margin-bottom: 0.3rem;
+            color: var(--negro);
+        }
+        .equipo-info span {
+            color: var(--rojo);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* CONTACTO */
+        .contacto {
+            background: linear-gradient(135deg, var(--rojo), var(--rojo-oscuro));
+            color: var(--blanco);
+        }
+        .contacto .section-title h2 { color: var(--blanco); }
+        .contacto .section-title p { color: rgba(255,255,255,0.8); }
+        .contacto-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+        .contacto-info h3 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+        .contacto-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .contacto-item i {
+            font-size: 1.5rem;
+            color: var(--dorado);
+            margin-top: 0.2rem;
+        }
+        .contacto-item h4 {
+            font-size: 1rem;
+            margin-bottom: 0.3rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+        }
+        .contacto-item p, .contacto-item a {
+            color: rgba(255,255,255,0.9);
+            font-size: 0.95rem;
+        }
+        .contacto-item a:hover { color: var(--dorado); }
+        .contacto-mapa {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        }
+        .contacto-mapa iframe {
+            width: 100%;
+            height: 400px;
+            border: none;
+        }
+        .redes-sociales {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        .redes-sociales a {
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            transition: all 0.3s;
+        }
+        .redes-sociales a:hover {
+            background: var(--blanco);
+            color: var(--rojo);
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--negro);
+            color: var(--blanco);
+            padding: 3rem 2rem;
+        }
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        .footer-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+        .footer-logo span { color: var(--rojo); }
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+        .footer-links a {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+        .footer-links a:hover { color: var(--blanco); }
+        .footer-copy {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.85rem;
+        }
+
+        /* WHATSAPP FLOTANTE */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--blanco);
+            font-size: 2rem;
+            box-shadow: 0 5px 25px rgba(37,211,102,0.4);
+            z-index: 999;
+            transition: transform 0.3s;
+        }
+        .whatsapp-float:hover { transform: scale(1.1); }
+
+        /* RESPONSIVE */
+        @media (max-width: 992px) {
+            .hero h1 { font-size: 3rem; }
+            .bienvenida-grid,
+            .certificaciones-content,
+            .contacto-grid,
+            .inmersion-grid { grid-template-columns: 1fr; }
+            .alianzas-grid,
+            .equipo-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .menu-toggle { display: block; }
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--blanco);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            }
+            nav ul.active { display: flex; }
+            .hero h1 { font-size: 2.5rem; }
+            .hero p { font-size: 1.1rem; }
+            .section-title h2 { font-size: 2.2rem; }
+            .cursos-grid { grid-template-columns: 1fr; }
+            .alianzas-grid,
+            .equipo-grid { grid-template-columns: 1fr; }
+            .tabla-precios { font-size: 0.85rem; }
+            .tabla-precios th,
+            .tabla-precios td { padding: 0.8rem; }
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <img src="logo_af.png" alt="Alliance Française San Cristóbal"/>
-    <nav>
-      <ul>
-        <li><a href="#quienes-somos">Quiénes Somos</a></li>
-        <li><a href="#mision-vision">Misión y Visión</a></li>
-        <li><a href="#comite">Comité Directivo</a></li>
-        <li><a href="#personal">Personal AF</a></li>
-        <li><a href="#oferta">Oferta Académica</a></li>
-        <li><a href="#descargas">Descargas</a></li>
-        <li><a href="#contacto">Contacto</a></li>
-        <li><a href="#banco">Datos Bancarios</a></li>
-      </ul>
-    </nav>
-  </header>
 
-  <main>
-    <section id="quienes-somos">
-      <h2>¿Quiénes Somos?</h2>
-      <p>Somos la Alliance Française de San Cristóbal de Las Casas, Chiapas, una institución dedicada a la difusión del idioma y la cultura francesa con presencia internacional y una pasión local.</p>
-    </section>
+<!-- HEADER -->
+<header>
+    <div class="header-inner">
+        <a href="#" class="logo">
+            <div class="logo-text">Alliance <span>Française</span></div>
+        </a>
+        <nav>
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul id="nav-menu">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#cursos">Cursos</a></li>
+                <li><a href="#alianzas">Alianzas</a></li>
+                <li><a href="#inmersion">Inmersión</a></li>
+                <li><a href="#certificaciones">DELF/DALF</a></li>
+                <li><a href="#equipo">Equipo</a></li>
+                <li><a href="#contacto" class="nav-cta">Inscríbete</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
 
-    <section id="mision-vision">
-      <h2>Misión</h2>
-      <p>Brindar educación de calidad en lengua francesa y fomentar el intercambio cultural franco-mexicano.</p>
-      <h2>Visión</h2>
-      <p>Ser un referente en la enseñanza del francés en Chiapas, promoviendo el acceso a la cultura y los valores de cooperación internacional.</p>
-    </section>
+<!-- HERO -->
+<section class="hero" id="inicio">
+    <div class="hero-content">
+        <h1>Donde el Francés se Vive y se Comparte</h1>
+        <p>Bienvenido a la casa de Francia en San Cristóbal de Las Casas. Descubre un espacio de excelencia educativa, cultura y conexión con el mundo francófono.</p>
+        <div class="hero-btns">
+            <a href="#cursos" class="btn btn-white">Explorar Cursos</a>
+            <a href="https://wa.me/529671721870" target="_blank" class="btn btn-outline">
+                <i class="fab fa-whatsapp"></i> Contáctanos
+            </a>
+        </div>
+    </div>
+</section>
 
-    <section id="comite">
-      <h2>Comité o Consejo Directivo</h2>
-      <img src="WhatsApp Image 2025-11-15 at 12.18.41 PM (3).jpeg" alt="Comité Directivo"/>
-      <ul>
-        <li>Presidencia: [Nombre]</li>
-        <li>Dirección: [Nombre]</li>
-        <li>Tesorería: [Nombre]</li>
-        <li>Vocalías: [Nombres]</li>
-      </ul>
-    </section>
+<!-- BIENVENIDA -->
+<section class="bienvenida" id="nosotros">
+    <div class="container">
+        <div class="bienvenida-grid">
+            <div class="bienvenida-img">
+                <img src="images/10.png" alt="Nueva sede Alliance Française San Cristóbal">
+            </div>
+            <div class="bienvenida-text">
+                <h3>Nuestra Nueva Sede en <span style="color: var(--rojo);">Avenida La Almolonga</span></h3>
+                <p>Promovemos la lengua francesa y las culturas francófonas en San Cristóbal de las Casas, ofreciendo una enseñanza de calidad, accesible y adaptada a cada persona.</p>
+                <p>Nuestra visión es ser un referente regional de excelencia lingüística y cultural, un lugar abierto, inclusivo y creativo donde converjan estudiantes, artistas, docentes y soñadores de todas las edades.</p>
+                <div class="features-list">
+                    <div class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Salones amplios y ventilados</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Jardines y áreas verdes</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Huerto urbano comunitario</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Espacios para eventos culturales</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-    <section id="personal">
-      <h2>Personal AF</h2>
-      <ul>
-        <li>Cayro Valvieso - Comunicación</li>
-        <li>Nancy Álvarez - Administración</li>
-        <li>Alejandro Avendaño</li>
-        <li>Allison Chau</li>
-        <li>Ava Hoyos</li>
-      </ul>
-      <img src="WhatsApp Image 2025-11-15 at 12.18.41 PM.jpeg" alt="Equipo AF"/>
-    </section>
+<!-- CURSOS -->
+<section class="cursos" id="cursos">
+    <div class="container">
+        <div class="section-title">
+            <h2>Descubre tu <span>Camino</span></h2>
+            <p>Elige el ritmo de aprendizaje que mejor se adapte a tu vida. Desde clases grupales hasta atención personalizada.</p>
+        </div>
+        <div class="cursos-grid">
+            <div class="curso-card">
+                <div class="curso-img">
+                    <img src="images/3.png" alt="Ritmo Básico">
+                </div>
+                <div class="curso-content">
+                    <h4>Ritmo Básico</h4>
+                    <div class="curso-meta">
+                        <span><i class="far fa-clock"></i> 2 hrs/semana</span>
+                        <span><i class="far fa-calendar"></i> 16 hrs/bimestre</span>
+                    </div>
+                    <p style="color: var(--gris); font-size: 0.9rem; margin-bottom: 1rem;">Para un aprendizaje gradual y estable. Ideal para quienes tienen poco tiempo disponible.</p>
+                    <div class="curso-precio">$1,300 <span>MXN/bimestre</span></div>
+                </div>
+            </div>
+            <div class="curso-card">
+                <div class="curso-img">
+                    <img src="images/4.png" alt="Ritmo Regular">
+                </div>
+                <div class="curso-content">
+                    <h4>Ritmo Regular</h4>
+                    <div class="curso-meta">
+                        <span><i class="far fa-clock"></i> 3 hrs/semana</span>
+                        <span><i class="far fa-calendar"></i> 24 hrs/bimestre</span>
+                    </div>
+                    <p style="color: var(--gris); font-size: 0.9rem; margin-bottom: 1rem;">Un aprendizaje equilibrado y adaptado a tu ritmo personal.</p>
+                    <div class="curso-precio">$1,900 <span>MXN/bimestre</span></div>
+                </div>
+            </div>
+            <div class="curso-card">
+                <div class="curso-img">
+                    <img src="images/5.png" alt="Ritmo Regular Plus">
+                </div>
+                <div class="curso-content">
+                    <h4>Ritmo Regular Plus</h4>
+                    <div class="curso-meta">
+                        <span><i class="far fa-clock"></i> 4 hrs/semana</span>
+                        <span><i class="far fa-calendar"></i> 32 hrs/bimestre</span>
+                    </div>
+                    <p style="color: var(--gris); font-size: 0.9rem; margin-bottom: 1rem;">Ideal para avanzar más rápido con una carga horaria accesible.</p>
+                    <div class="curso-precio">$2,600 <span>MXN/bimestre</span></div>
+                </div>
+            </div>
+            <div class="curso-card">
+                <div class="curso-img">
+                    <img src="images/6.png" alt="Ritmo Intensivo">
+                </div>
+                <div class="curso-content">
+                    <h4>Ritmo Intensivo</h4>
+                    <div class="curso-meta">
+                        <span><i class="far fa-clock"></i> 6 hrs/semana</span>
+                        <span><i class="far fa-calendar"></i> 48 hrs/bimestre</span>
+                    </div>
+                    <p style="color: var(--gris); font-size: 0.9rem; margin-bottom: 1rem;">Para llevar tus habilidades al siguiente nivel con práctica constante.</p>
+                    <div class="curso-precio">$3,800 <span>MXN/bimestre</span></div>
+                </div>
+            </div>
+            <div class="curso-card">
+                <div class="curso-img">
+                    <img src="images/7.png" alt="Ritmo Intensivo Plus">
+                </div>
+                <div class="curso-content">
+                    <h4>Ritmo Intensivo Plus</h4>
+                    <div class="curso-meta">
+                        <span><i class="far fa-clock"></i> 8 hrs/semana</span>
+                        <span><i class="far fa-calendar"></i> 64 hrs/bimestre</span>
+                    </div>
+                    <p style="color: var(--gris); font-size: 0.9rem; margin-bottom: 1rem;">El camino más rápido hacia la fluidez: aprende francés intensivamente.</p>
+                    <div class="curso-precio">$5,100 <span>MXN/bimestre</span></div>
+                </div>
+            </div>
+            <div class="curso-card">
+                <div class="curso-img">
+                    <img src="images/8.png" alt="Clases Particulares">
+                </div>
+                <div class="curso-content">
+                    <h4>Clases Particulares</h4>
+                    <div class="curso-meta">
+                        <span><i class="fas fa-user"></i> Individual</span>
+                        <span><i class="far fa-calendar"></i> A tu medida</span>
+                    </div>
+                    <p style="color: var(--gris); font-size: 0.9rem; margin-bottom: 1rem;">Acoplado a tu meta, tiempos y disponibilidad. Diseño curricular personalizado.</p>
+                    <div class="curso-precio">$350 <span>MXN/hora</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-    <section id="oferta">
-      <h2>Oferta Académica</h2>
-      <img src="Ritmo Intensivo.jpeg" alt="Ritmo Intensivo"/>
-      <img src="Ritmo Regular Plus.jpeg" alt="Ritmo Regular Plus"/>
-      <img src="Ritmo Regular.jpeg" alt="Ritmo Regular"/>
-      <img src="Ritmo Básico.jpeg" alt="Ritmo Básico"/>
-      <img src="cursos particulares.jpeg" alt="Cursos Particulares"/>
-    </section>
+<!-- PRECIOS -->
+<section class="precios" id="precios">
+    <div class="container">
+        <div class="section-title">
+            <h2>Tabla de <span>Precios</span></h2>
+            <p>Consulta todas nuestras modalidades y encuentra la opción perfecta para ti.</p>
+        </div>
+        <table class="tabla-precios">
+            <thead>
+                <tr>
+                    <th>Modalidad</th>
+                    <th>Horas/Bimestre</th>
+                    <th>Frecuencia</th>
+                    <th>Costo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Básico</strong></td>
+                    <td>16 horas</td>
+                    <td>2 veces/semana</td>
+                    <td class="precio-destacado">$1,300 MXN</td>
+                </tr>
+                <tr>
+                    <td><strong>Regular</strong></td>
+                    <td>24 horas</td>
+                    <td>3 veces/semana</td>
+                    <td class="precio-destacado">$1,900 MXN</td>
+                </tr>
+                <tr>
+                    <td><strong>Regular Plus</strong></td>
+                    <td>32 horas</td>
+                    <td>4 veces/semana</td>
+                    <td class="precio-destacado">$2,600 MXN</td>
+                </tr>
+                <tr>
+                    <td><strong>Intensivo</strong></td>
+                    <td>48 horas</td>
+                    <td>5 veces/semana</td>
+                    <td class="precio-destacado">$3,800 MXN</td>
+                </tr>
+                <tr>
+                    <td><strong>Intensivo Plus</strong></td>
+                    <td>64 horas</td>
+                    <td>6 veces/semana</td>
+                    <td class="precio-destacado">$5,100 MXN</td>
+                </tr>
+                <tr>
+                    <td><strong>Clase Particular</strong> (1 persona)</td>
+                    <td>Personalizado</td>
+                    <td>A convenir</td>
+                    <td class="precio-destacado">$350 MXN/hora</td>
+                </tr>
+                <tr>
+                    <td><strong>Semi Particular</strong> (2 personas)</td>
+                    <td>Personalizado</td>
+                    <td>A convenir</td>
+                    <td class="precio-destacado">$500 MXN/hora</td>
+                </tr>
+                <tr>
+                    <td><strong>Semi Grupal</strong> (3 personas)</td>
+                    <td>Personalizado</td>
+                    <td>A convenir</td>
+                    <td class="precio-destacado">$700 MXN/hora</td>
+                </tr>
+            </tbody>
+        </table>
+        <p style="text-align: center; margin-top: 2rem; color: var(--gris);">
+            <i class="fas fa-info-circle"></i> Membresía anual: <strong>$450 MXN</strong> | Grupos de 4-12 estudiantes
+        </p>
+    </div>
+</section>
 
-    <section id="descargas">
-      <h2>Documentos Descargables</h2>
-      <ul>
-        <li><a href="catalago af.pdf" download>📄 Catálogo de Cursos</a></li>
-        <li><a href="infografía clases.pdf" download>📄 Infografía de Inscripciones</a></li>
-        <li><a href="Programa cinéma-carrefour (1).pdf" download>📽️ Programación de Cine</a></li>
-        <li><a href="Reglamento clases particulares.pdf" download>📘 Reglamento Clases Particulares</a></li>
-        <li><a href="Reglamento interno.pdf" download>📘 Reglamento Interno</a></li>
-      </ul>
-    </section>
+<!-- ALIANZAS -->
+<section class="alianzas" id="alianzas">
+    <div class="container">
+        <div class="section-title">
+            <h2>Nuestras <span>Alianzas</span> Educativas</h2>
+            <p>Experiencias especializadas que conectan la lengua francesa con la vida real y el desarrollo profesional.</p>
+        </div>
+        <div class="alianzas-grid">
+            <div class="alianza-card">
+                <div class="alianza-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h4>Centro de Estudios La Salle</h4>
+                <p>Certificación internacional DELF para estudiantes de primaria y secundaria. Formamos alumnos certificados con proyección global.</p>
+            </div>
+            <div class="alianza-card">
+                <div class="alianza-icon">
+                    <i class="fas fa-utensils"></i>
+                </div>
+                <h4>Instituto Parmentier</h4>
+                <p>Cocina francesa + huerto escolar. Sembrar, cocinar y compartir: una forma auténtica de vivir el francés con las manos en la tierra.</p>
+            </div>
+            <div class="alianza-card">
+                <div class="alianza-icon">
+                    <i class="fas fa-heartbeat"></i>
+                </div>
+                <h4>Médecins du Monde</h4>
+                <p>Francés para la acción humanitaria. Cursos especializados para profesionales de la salud en contextos de cooperación internacional.</p>
+            </div>
+        </div>
+    </div>
+</section>
 
-    <section id="contacto">
-      <h2>Contacto</h2>
-      <p>WhatsApp: 967 172 1870</p>
-      <p>Correo: administracionsancristobal@alianzafr.edu.mx</p>
-      <p>Comunicación: comunicacionsancristobal@alianzafr.edu.mx</p>
-      <p>Dirección: direccionsancristobal@alianzafr.edu.mx</p>
-      <p>Dirección Física: Av. la Almolonga 80, Sta Lucía, Barrio Sta Lucía, 29250 San Cristóbal de las Casas, Chis.</p>
-      <p><a href="https://maps.app.goo.gl/38Qwnck1SPrcxafX7" target="_blank">Ver en Google Maps</a></p>
-    </section>
+<!-- INMERSIÓN -->
+<section class="inmersion" id="inmersion">
+    <div class="container">
+        <div class="section-title">
+            <h2>Programas de <span style="color: var(--dorado);">Inmersión</span></h2>
+            <p>Vive el francés donde se habla. Experiencias transformadoras en Francia y Canadá para estudiantes y familias.</p>
+        </div>
+        <div class="inmersion-grid">
+            <div class="inmersion-card">
+                <h4>Alliance Française Montréal</h4>
+                <span class="ciudad"><i class="fas fa-map-marker-alt"></i> Canadá</span>
+                <p>Inmersión lingüística y cultural en el corazón del Canadá francófono. Clases intensivas, actividades culturales y descubrimiento de la diversidad quebequense.</p>
+                <div class="inmersion-detalles">
+                    <div class="inmersion-detalle">
+                        <i class="far fa-calendar"></i> Julio - Agosto 2025
+                    </div>
+                    <div class="inmersion-detalle">
+                        <i class="far fa-clock"></i> 25 hrs/semana
+                    </div>
+                    <div class="inmersion-detalle">
+                        <i class="fas fa-layer-group"></i> Nivel A2, B1, B2
+                    </div>
+                    <div class="inmersion-detalle">
+                        <i class="fas fa-tag"></i> 10% descuento
+                    </div>
+                </div>
+                <div class="inmersion-precio">$660 CAD/semana</div>
+                <p style="font-size: 0.85rem;">Código promocional: <strong>AF2025SANCRISTOBAL</strong></p>
+            </div>
+            <div class="inmersion-card">
+                <h4>Alliance Française Rouen</h4>
+                <span class="ciudad"><i class="fas fa-map-marker-alt"></i> Francia</span>
+                <p>17 días de inmersión en Normandía. Clases de francés, convivencia con familias locales, visitas a Giverny, Mont-Saint-Michel y París.</p>
+                <div class="inmersion-detalles">
+                    <div class="inmersion-detalle">
+                        <i class="far fa-calendar"></i> 29 Jun - 15 Jul 2025
+                    </div>
+                    <div class="inmersion-detalle">
+                        <i class="far fa-clock"></i> 15 hrs/semana
+                    </div>
+                    <div class="inmersion-detalle">
+                        <i class="fas fa-layer-group"></i> Nivel A2, B1, B2
+                    </div>
+                    <div class="inmersion-detalle">
+                        <i class="fas fa-home"></i> Familias anfitrionas
+                    </div>
+                </div>
+                <div class="inmersion-precio">Consultar precios</div>
+                <p style="font-size: 0.85rem;">Incluye: Fiesta Nacional del 14 de julio en París</p>
+            </div>
+        </div>
+        <p style="text-align: center; margin-top: 3rem; opacity: 0.8;">
+            <i class="fas fa-quote-left"></i> "Mi hijo volvió más independiente, seguro y feliz. Su nivel de francés avanzó increíblemente." — Madre participante, Verano 2023
+        </p>
+    </div>
+</section>
 
-    <section id="banco">
-      <h2>Datos Bancarios</h2>
-      <p><strong>ALIANZA FRANCO MEXICANA DE SAN CRISTÓBAL A.C.</strong></p>
-      <p>BBVA Bancomer</p>
-      <p>Núm. de Cuenta: 0186832806</p>
-      <p>Clabe: 012130001868328069</p>
-      <p><strong>Nota:</strong> No nos hacemos responsables de pagos erróneos o sin autorización expresa del equipo administrativo.</p>
-    </section>
-  </main>
+<!-- CERTIFICACIONES -->
+<section class="certificaciones" id="certificaciones">
+    <div class="container">
+        <div class="section-title">
+            <h2>Certificaciones <span>DELF/DALF</span></h2>
+            <p>Un pasaporte académico para el futuro. Un diploma francés para toda la vida.</p>
+        </div>
+        <div class="certificaciones-content">
+            <div class="cert-info">
+                <h3>Centro Aplicador <span style="color: var(--rojo);">Autorizado</span></h3>
+                <p>Somos centro aplicador autorizado del DELF (Diplôme d'Études en Langue Française) y DELF Junior, certificaciones oficiales del Ministerio de Educación Nacional de Francia.</p>
+                <p>Estos diplomas son reconocidos internacionalmente en más de 180 países y son válidos de por vida, sin necesidad de renovación.</p>
+                <ul style="margin-top: 1.5rem; padding-left: 1.5rem; color: var(--gris);">
+                    <li>Certificación oficial y permanente</li>
+                    <li>Valor académico internacional</li>
+                    <li>Abre oportunidades de estudio y movilidad</li>
+                    <li>Preparación con docentes capacitados</li>
+                    <li>Materiales alineados al MCER</li>
+                </ul>
+                <div class="cert-badges">
+                    <div class="cert-badge">
+                        <i class="fas fa-award"></i>
+                        <span>France Éducation International</span>
+                    </div>
+                    <div class="cert-badge">
+                        <i class="fas fa-globe-europe"></i>
+                        <span>180+ países</span>
+                    </div>
+                    <div class="cert-badge">
+                        <i class="fas fa-infinity"></i>
+                        <span>Validez permanente</span>
+                    </div>
+                </div>
+            </div>
+            <div class="cert-visual">
+                <img src="images/13.png" alt="Certificación DELF - Entrega de diplomas">
+            </div>
+        </div>
+    </div>
+</section>
 
-  <footer>
-    <p>&copy; 2025 Alliance Française San Cristóbal. Todos los derechos reservados.</p>
-  </footer>
+<!-- EQUIPO -->
+<section class="equipo" id="equipo">
+    <div class="container">
+        <div class="section-title">
+            <h2>Nuestro <span>Equipo</span></h2>
+            <p>Profesionales comprometidos con tu aprendizaje y desarrollo.</p>
+        </div>
+        <div class="equipo-grid">
+            <div class="equipo-card">
+                <div class="equipo-foto">
+                    <img src="images/11.png" alt="Miguel Tillero - Director General">
+                </div>
+                <div class="equipo-info">
+                    <h4>Miguel Tillero</h4>
+                    <span>Director General</span>
+                </div>
+            </div>
+            <div class="equipo-card">
+                <div class="equipo-foto">
+                    <img src="images/12.png" alt="Nancy Díaz - Responsable Administrativa">
+                </div>
+                <div class="equipo-info">
+                    <h4>Nancy Díaz</h4>
+                    <span>Responsable Administrativa</span>
+                </div>
+            </div>
+            <div class="equipo-card">
+                <div class="equipo-foto">
+                    <img src="images/14.png" alt="Cayro Valdivieso - Comunicación y Redes">
+                </div>
+                <div class="equipo-info">
+                    <h4>Cayro Valdivieso</h4>
+                    <span>Comunicación y Redes</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACTO -->
+<section class="contacto" id="contacto">
+    <div class="container">
+        <div class="section-title">
+            <h2>Contáctanos</h2>
+            <p>Estamos listos para acompañarte en tu viaje hacia el mundo francófono.</p>
+        </div>
+        <div class="contacto-grid">
+            <div class="contacto-info">
+                <h3>¿Listo para comenzar?</h3>
+                <div class="contacto-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h4>Dirección</h4>
+                        <p>Av. La Almolonga 80, Barrio Santa Lucía<br>29250 San Cristóbal de Las Casas, Chiapas</p>
+                    </div>
+                </div>
+                <div class="contacto-item">
+                    <i class="fab fa-whatsapp"></i>
+                    <div>
+                        <h4>WhatsApp</h4>
+                        <a href="https://wa.me/529671721870">967 172 1870</a>
+                    </div>
+                </div>
+                <div class="contacto-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h4>Correo Electrónico</h4>
+                        <a href="mailto:afsancris@gmail.com">afsancris@gmail.com</a><br>
+                        <a href="mailto:direccionsancristobal@alianzafr.edu.mx">direccionsancristobal@alianzafr.edu.mx</a>
+                    </div>
+                </div>
+                <div class="contacto-item">
+                    <i class="fas fa-university"></i>
+                    <div>
+                        <h4>Datos Bancarios</h4>
+                        <p>ALIANZA FRANCO MEXICANA DE SAN CRISTÓBAL A.C.<br>
+                        BBVA | Cuenta: 0186832806<br>
+                        CLABE: 012130001868328069</p>
+                    </div>
+                </div>
+                <div class="redes-sociales">
+                    <a href="https://facebook.com/alianzafrancesasancristobal" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://instagram.com/afdesancristobal" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/529671721870" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="contacto-mapa">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3820.5!2d-92.638!3d16.737!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTbCsDQ0JzEzLjIiTiA5MsKwMzgnMTguNiJX!5e0!3m2!1ses!2smx!4v1700000000000" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-content">
+        <div class="footer-logo">Alliance <span>Française</span> San Cristóbal</div>
+        <div class="footer-links">
+            <a href="docs/catalago_af.pdf" target="_blank">Catálogo</a>
+            <a href="docs/Reglamento_interno.pdf" target="_blank">Reglamento</a>
+            <a href="docs/infografía_clases.pdf" target="_blank">Inscripciones</a>
+        </div>
+        <div class="footer-copy">
+            © 2025 Alliance Française de San Cristóbal de Las Casas. Todos los derechos reservados.
+        </div>
+    </div>
+</footer>
+
+<!-- WHATSAPP FLOTANTE -->
+<a href="https://wa.me/529671721870" target="_blank" class="whatsapp-float">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+<script>
+    function toggleMenu() {
+        document.getElementById('nav-menu').classList.toggle('active');
+    }
+
+    window.addEventListener('scroll', function() {
+        const header = document.querySelector('header');
+        if (window.scrollY > 50) {
+            header.style.background = 'rgba(255,255,255,0.98)';
+            header.style.boxShadow = '0 2px 30px rgba(0,0,0,0.15)';
+        } else {
+            header.style.background = 'var(--blanco)';
+            header.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+        }
+    });
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                document.getElementById('nav-menu').classList.remove('active');
+            }
+        });
+    });
+</script>
+
 </body>
 </html>
