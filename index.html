@@ -1,40 +1,220 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alliance Française San Cristóbal de Las Casas</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Open Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            min-height: 100vh;
-            padding: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .container {
-            max-width: 500px;
-            width: 100%;
-            background: #FFFFFF;
-            border-radius: 16px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
-            padding: 40px 30px;
-            text-align: center;
-            border-top: 5px solid #E30613;
-            animation: fadeIn 0.5s ease-out;
-        }
-        
-        .logo-container {
-            margin-bottom: 25px
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alliance Française San Cristóbal - Cursos de Francés y Cultura</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+  <style>
+    body { font-family: 'Montserrat', sans-serif; color: #333; margin: 0; padding: 0; }
+    h1, h2, h3, h4 { font-weight: 600; }
+    h1 { font-size: 2.5em; color: #c00; margin: 0.5em 0; }
+    h2 { font-size: 1.8em; color: #c00; margin-top: 1em; margin-bottom: 0.5em; }
+    h3 { font-size: 1.4em; margin-top: 0.8em; }
+    header { background: #f8f9fa; padding: 1rem; }
+    nav a { color: #333; margin-right: 1rem; text-decoration: none; font-weight: 600; }
+    nav a:hover { color: #c00; }
+    .navbar-brand { font-weight: 600; }
+    section { padding: 2rem 1rem; }
+    .section-title { border-bottom: 2px solid #c00; display: inline-block; padding-bottom: 0.2rem; margin-bottom: 1rem; }
+    .social-icons a { font-size: 1.5rem; color: #333; margin: 0 0.5rem; }
+    .social-icons a:hover { color: #c00; }
+    .courses-list li { margin-bottom: 0.5rem; }
+    .modalidades { display: flex; flex-wrap: wrap; gap: 1rem; }
+    .modalidad-item { flex: 1 1 200px; background: #f0f0f0; padding: 1rem; border-radius: 5px; text-align: center; }
+    .modalidad-item i { font-size: 2rem; color: #c00; margin-bottom: 0.5rem; }
+    .free-class-cta { background: #c00; color: #fff; padding: 1rem; border-radius: 5px; text-align: center; }
+    .free-class-cta a { color: #fff; font-weight: bold; text-decoration: underline; }
+    .gallery-images img { max-width: 100%; height: auto; border: 2px solid #fff; border-radius: 5px; margin-bottom: 1rem; }
+    .gallery-images .row { margin-bottom: 1rem; }
+    footer { background: #f8f9fa; padding: 1rem; text-align: center; }
+  </style>
+</head>
+<body>
+
+<header>
+  <nav class="container navbar navbar-expand-lg navbar-light">
+    <a class="navbar-brand" href="#">Alliance Française</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuNav" aria-controls="menuNav" aria-expanded="false" aria-label="Toggle menu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="menuNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#cursos">Cursos</a></li>
+        <li class="nav-item"><a class="nav-link" href="#modalidades">Modalidades</a></li>
+        <li class="nav-item"><a class="nav-link" href="#claseA1">Clase A1 Gratis</a></li>
+        <li class="nav-item"><a class="nav-link" href="#certificacion">Certificación</a></li>
+        <li class="nav-item"><a class="nav-link" href="#cine">Cine</a></li>
+        <li class="nav-item"><a class="nav-link" href="#huerto">Huerto</a></li>
+        <li class="nav-item"><a class="nav-link" href="#inscripcion">Inscripción</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<main class="container">
+
+  <section id="home" class="text-center">
+    <h1>Alliance Française de San Cristóbal de Las Casas</h1>
+    <p>Aprende francés y vive la cultura francófona en Chiapas.</p>
+    <p>Clases de francés para todas las edades y niveles, eventos culturales y mucho más. ¡Inscríbete y sé parte de nuestra comunidad!</p>
+    <div class="social-icons">
+      <a href="https://wa.me/529671721870" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://www.facebook.com/alianzafrancesa.sancristobal" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+      <a href="https://www.instagram.com/afsancristobal" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+    </div>
+  </section>
+
+  <section id="cursos">
+    <h2 class="section-title">Oferta de cursos</h2>
+    <p>Ofrecemos cursos de francés para <strong>niños, adolescentes y adultos</strong> en todos los niveles (A1 a C1).</p>
+    <p>Elige el <strong>ritmo de aprendizaje</strong> que mejor se adapte a ti:</p>
+    <ul class="courses-list">
+      <li><strong>Cursos intensivos:</strong> clases diarias para avanzar más rápido.</li>
+      <li><strong>Cursos regulares:</strong> 2-3 veces por semana.</li>
+      <li><strong>Cursos sabatinos:</strong> ideal si trabajas entre semana.</li>
+      <li><strong>Clases particulares:</strong> programas personalizados.  
+        <a href="reglamento-clases-particulares-afsc-2025.pdf" target="_blank">Ver reglamento</a>.
+      </li>
+    </ul>
+    <p>Descarga el <a href="catalogo-afsc-cursos-2025.pdf" target="_blank">catálogo de cursos 2025</a>.</p>
+  </section>
+
+  <section id="modalidades">
+    <h2 class="section-title">Modalidades de cursos</h2>
+    <div class="modalidades">
+      <div class="modalidad-item">
+        <i class="fas fa-school"></i>
+        <h3>Presencial</h3>
+        <p>Clases en nuestras instalaciones, con interacción cara a cara.</p>
+      </div>
+      <div class="modalidad-item">
+        <i class="fas fa-laptop"></i>
+        <h3>En línea</h3>
+        <p>Cursos virtuales en vivo, con la misma calidad académica.</p>
+      </div>
+      <div class="modalidad-item">
+        <i class="fas fa-sync-alt"></i>
+        <h3>Híbrido</h3>
+        <p>Combina sesiones presenciales y conexión en línea.</p>
+      </div>
+      <div class="modalidad-item">
+        <i class="fas fa-child"></i>
+        <h3>Kids</h3>
+        <p>Programas especialmente diseñados para niñas y niños.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="claseA1">
+    <h2 class="section-title">Clase de iniciación A1 gratuita</h2>
+    <div class="free-class-cta">
+      <p>Ofrecemos una clase de iniciación nivel A1 totalmente <strong>gratuita</strong> para nuevos alumnos.</p>
+      <p><a href="#inscripcion">Reserva tu lugar</a> en la próxima sesión de muestra.</p>
+    </div>
+  </section>
+
+  <section id="certificacion">
+    <h2 class="section-title">Certificación DELF / DALF</h2>
+    <p>Somos centro oficial de los exámenes <strong>DELF</strong> (A1–B2) y <strong>DALF</strong> (C1–C2).  
+       Te preparamos con cursos específicos para que obtengas tu diploma de francés reconocido internacionalmente.</p>
+  </section>
+
+  <section id="cine">
+    <h2 class="section-title">Programación cultural – Cinéma Carrefour</h2>
+    <p>Cineclub con proyecciones de cine francés y francófono.</p>
+    <p>Consulta la <a href="programa-cinema-carrefour-2025.pdf" target="_blank">programación completa 2025</a>.</p>
+  </section>
+
+  <section id="huerto">
+    <h2 class="section-title">Proyecto "Huerto Innovador"</h2>
+    <p>Proyecto ecológico y pedagógico donde el francés se aprende también con las manos en la tierra.</p>
+
+    <div class="row">
+      <div class="col-md-4 mb-3">
+        <video controls class="w-100" src="huerto-innovador-01.mp4" poster="huerto-innovador-01.jpg"></video>
+      </div>
+      <div class="col-md-4 mb-3">
+        <video controls class="w-100" src="huerto-innovador-02.mp4" poster="huerto-innovador-02.jpg"></video>
+      </div>
+      <div class="col-md-4 mb-3">
+        <video controls class="w-100" src="huerto-innovador-03.mp4" poster="huerto-innovador-03.jpg"></video>
+      </div>
+    </div>
+
+    <div class="gallery-images">
+      <div class="row">
+        <div class="col-md-4 mb-3">
+          <img src="huerto-innovador-01.jpg" alt="Huerto Innovador 1">
+        </div>
+        <div class="col-md-4 mb-3">
+          <img src="huerto-innovador-02.jpg" alt="Huerto Innovador 2">
+        </div>
+        <div class="col-md-4 mb-3">
+          <img src="huerto-innovador-03.jpg" alt="Huerto Innovador 3">
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-md-4 mb-3">
+          <img src="huerto-innovador-04.jpg" alt="Huerto Innovador 4">
+        </div>
+        <div class="col-md-4 mb-3">
+          <img src="huerto-innovador-05.jpg" alt="Huerto Innovador 5">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="inscripcion">
+    <h2 class="section-title">Formulario de inscripción</h2>
+    <p>Completa el formulario y nos pondremos en contacto contigo.</p>
+    <form action="mailto:afsancris@gmail.com" method="post" enctype="text/plain">
+      <div class="mb-3">
+        <label for="name" class="form-label">Nombre completo:</label>
+        <input type="text" class="form-control" id="name" name="Nombre" required>
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Correo electrónico:</label>
+        <input type="email" class="form-control" id="email" name="Email" required>
+      </div>
+      <div class="mb-3">
+        <label for="phone" class="form-label">Teléfono de contacto:</label>
+        <input type="tel" class="form-control" id="phone" name="Telefono" required>
+      </div>
+      <div class="mb-3">
+        <label for="course" class="form-label">Curso o nivel de interés:</label>
+        <input type="text" class="form-control" id="course" name="CursoInteres">
+      </div>
+      <div class="mb-3">
+        <label for="message" class="form-label">Comentarios o preguntas:</label>
+        <textarea class="form-control" id="message" name="Comentarios" rows="3"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
+    <p><small>Al enviar este formulario, aceptas nuestro  
+      <a href="reglamento-interno-afsc-2025.pdf" target="_blank">Reglamento Interno</a>.
+    </small></p>
+  </section>
+
+  <section id="contacto">
+    <h2 class="section-title">Contacto, ubicación y horarios</h2>
+    <p><strong>María Adelina Flores #47, Col. Centro</strong><br>
+       San Cristóbal de Las Casas, Chiapas, C.P. 29230, México.</p>
+    <p>Tel: <a href="tel:+529676784151">967 678 4151</a> · WhatsApp:
+      <a href="https://wa.me/529671721870" target="_blank">967 172 1870</a><br>
+       Email: <a href="mailto:afsancris@gmail.com">afsancris@gmail.com</a></p>
+    <p>Horario: lunes a viernes 9:00–17:00 · sábado 9:00–14:00</p>
+  </section>
+
+</main>
+
+<footer>
+  <p>&copy; 2025 Alliance Française de San Cristóbal de Las Casas. Todos los derechos reservados.</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+</body>
+</html>
