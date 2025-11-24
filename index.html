@@ -1,281 +1,106 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Sitio oficial de la Alliance Française de San Cristóbal de Las Casas. Cursos de francés, certificaciones DELF/DALF, actividades culturales y más.">
-  <title>Alliance Française San Cristóbal de Las Casas</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      color: #333;
-      background-color: #fff;
-    }
-    header {
-      background: #E30613;
-      color: #fff;
-      padding: 20px;
-      text-align: center;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2em;
-    }
-    main {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    section {
-      padding: 40px 20px;
-    }
-    section h2 {
-      color: #E30613;
-      margin-bottom: 20px;
-      text-align: center;
-    }
-    /* Alternate background for sections */
-    section:nth-of-type(even) {
-      background: #f9f9f9;
-    }
-    .team-members {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
-    }
-    .team-member {
-      text-align: center;
-      max-width: 150px;
-    }
-    .team-member img {
-      width: 100%;
-      height: auto;
-      border-radius: 50%;
-    }
-    .team-member h3 {
-      margin: 10px 0 5px;
-      font-size: 1.1em;
-    }
-    .team-member p {
-      margin: 0;
-      font-style: italic;
-    }
-    .council-list {
-      list-style: none;
-      padding: 0;
-      max-width: 400px;
-      margin: 0 auto;
-      text-align: left;
-    }
-    .council-list li {
-      margin: 5px 0;
-    }
-    .ofertas {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
-    }
-    .oferta {
-      text-align: center;
-      max-width: 200px;
-      min-height: 300px;
-    }
-    .oferta img {
-      width: 100%;
-      height: auto;
-    }
-    .oferta h3 {
-      margin: 10px 0 0;
-      font-size: 1.1em;
-    }
-    .download-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      justify-content: center;
-      margin-top: 10px;
-    }
-    .download-buttons a {
-      background: #0055A4;
-      color: #fff;
-      padding: 10px 15px;
-      text-decoration: none;
-      border-radius: 5px;
-      display: inline-block;
-      font-size: 0.95em;
-    }
-    .download-buttons a:hover {
-      background: #003f7d;
-    }
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 10px;
-    }
-    .gallery img {
-      width: 100%;
-      height: auto;
-      display: block;
-      border: 2px solid #fff;
-    }
-    .videos video {
-      max-width: 100%;
-      margin: 10px 0;
-      display: block;
-    }
-    footer {
-      background: #333;
-      color: #fff;
-      text-align: center;
-      padding: 20px;
-    }
-    footer a {
-      color: #fff;
-      text-decoration: underline;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Alliance Française San Cristóbal</title>
+  <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
-
   <header>
-    <h1>Alliance Française San Cristóbal de Las Casas</h1>
+    <img src="logo_af.png" alt="Alliance Française San Cristóbal"/>
+    <nav>
+      <ul>
+        <li><a href="#quienes-somos">Quiénes Somos</a></li>
+        <li><a href="#mision-vision">Misión y Visión</a></li>
+        <li><a href="#comite">Comité Directivo</a></li>
+        <li><a href="#personal">Personal AF</a></li>
+        <li><a href="#oferta">Oferta Académica</a></li>
+        <li><a href="#descargas">Descargas</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+        <li><a href="#banco">Datos Bancarios</a></li>
+      </ul>
+    </nav>
   </header>
 
   <main>
-    <!-- Sección Quiénes Somos -->
     <section id="quienes-somos">
       <h2>¿Quiénes Somos?</h2>
-      <p>La Alliance Française de San Cristóbal de Las Casas es una institución cultural sin fines de lucro dedicada a la enseñanza del idioma francés y a la difusión de la cultura francófona en la región de Chiapas. Ofrecemos un espacio de intercambio cultural para toda la comunidad, promoviendo el bilingüismo y la diversidad cultural.</p>
-      <p><strong>Misión:</strong> Promover y difundir la lengua francesa y las culturas francófonas en nuestra comunidad, brindando enseñanza de calidad y actividades culturales que fomenten el intercambio multicultural.</p>
-      <p><strong>Visión:</strong> Ser el centro de referencia en la región para el aprendizaje del francés y la promoción cultural, reconocido por la excelencia académica, la inclusión y el enriquecimiento cultural de nuestra comunidad.</p>
+      <p>Somos la Alliance Française de San Cristóbal de Las Casas, Chiapas, una institución dedicada a la difusión del idioma y la cultura francesa con presencia internacional y una pasión local.</p>
     </section>
 
-    <!-- Sección Equipo -->
-    <section id="equipo">
-      <h2>Nuestro Equipo</h2>
-      <div class="team-members">
-        <div class="team-member">
-          <img src="WhatsApp%20Image%202025-11-15%20at%2012.18.14%20PM.jpeg" alt="Foto de Miguel Tillero">
-          <h3>Miguel Tillero</h3>
-          <p>Director General</p>
-        </div>
-        <div class="team-member">
-          <img src="WhatsApp%20Image%202025-11-15%20at%2012.17.14%20PM.jpeg" alt="Foto de Nancy Díaz">
-          <h3>Nancy Díaz</h3>
-          <p>Resp. Adm. de Inscripciones</p>
-        </div>
-        <div class="team-member">
-          <img src="WhatsApp%20Image%202025-11-15%20at%2012.17.14%20PM%20%281%29.jpeg" alt="Foto de Cayro Valdivieso">
-          <h3>Cayro Valdivieso</h3>
-          <p>Comunicación y Redes</p>
-        </div>
-        <div class="team-member">
-          <img src="WhatsApp%20Image%202025-11-15%20at%2012.17.14%20PM%20%282%29.jpeg" alt="Foto de Alejandro Avendaño">
-          <h3>Alejandro Avendaño</h3>
-          <p>Profesor de francés</p>
-        </div>
-        <div class="team-member">
-          <img src="WhatsApp%20Image%202025-11-15%20at%2012.17.13%20PM.jpeg" alt="Foto de Allison Chau">
-          <h3>Allison Chau</h3>
-          <p>Profesora de francés</p>
-        </div>
-        <div class="team-member">
-          <img src="WhatsApp%20Image%202025-11-15%20at%2012.17.14%20PM%20%283%29.jpeg" alt="Foto de Ava Hoyos">
-          <h3>Ava Hoyos</h3>
-          <p>Profesora de francés</p>
-        </div>
-      </div>
+    <section id="mision-vision">
+      <h2>Misión</h2>
+      <p>Brindar educación de calidad en lengua francesa y fomentar el intercambio cultural franco-mexicano.</p>
+      <h2>Visión</h2>
+      <p>Ser un referente en la enseñanza del francés en Chiapas, promoviendo el acceso a la cultura y los valores de cooperación internacional.</p>
     </section>
 
-    <!-- Sección Consejo Directivo -->
-    <section id="consejo-directivo">
-      <h2>Consejo Directivo</h2>
-      <p>El Consejo Directivo es la máxima autoridad de la Alianza Francesa de San Cristóbal, encargado de la dirección estratégica y transparencia de la institución. Actualmente está conformado por:</p>
-      <ul class="council-list">
-        <li><strong>Presidenta del Consejo:</strong> Diana Verania Zebadúa Coello</li>
-        <li><strong>Secretaria:</strong> Elsa Samperio</li>
-        <li><strong>Tesorera:</strong> Berenice Díaz</li>
-        <li><strong>Consejero:</strong> Antoine Lissorgues</li>
-        <li><strong>Director General:</strong> Miguel Tillero</li>
+    <section id="comite">
+      <h2>Comité o Consejo Directivo</h2>
+      <img src="WhatsApp Image 2025-11-15 at 12.18.41 PM (3).jpeg" alt="Comité Directivo"/>
+      <ul>
+        <li>Presidencia: [Nombre]</li>
+        <li>Dirección: [Nombre]</li>
+        <li>Tesorería: [Nombre]</li>
+        <li>Vocalías: [Nombres]</li>
       </ul>
     </section>
 
-    <!-- Sección Ofertas Académicas -->
-    <section id="ofertas">
-      <h2>Ofertas Académicas</h2>
-      <div class="ofertas">
-        <div class="oferta">
-          <img src="1.png" alt="Clases 100% online">
-          <h3>Clases 100% Online</h3>
-        </div>
-        <div class="oferta">
-          <img src="2.png" alt="Clase de iniciación">
-          <h3>Clase de Iniciación</h3>
-        </div>
-        <div class="oferta">
-          <img src="3.png" alt="Clases para niños">
-          <h3>Clases para Niños</h3>
-        </div>
-        <div class="oferta">
-          <img src="4.png" alt="Clases presenciales">
-          <h3>Clases Presenciales</h3>
-        </div>
-        <div class="oferta">
-          <!-- No image provided for this category -->
-          <h3>Certificación DELF/DALF</h3>
-        </div>
-      </div>
+    <section id="personal">
+      <h2>Personal AF</h2>
+      <ul>
+        <li>Cayro Valvieso - Comunicación</li>
+        <li>Nancy Álvarez - Administración</li>
+        <li>Alejandro Avendaño</li>
+        <li>Allison Chau</li>
+        <li>Ava Hoyos</li>
+      </ul>
+      <img src="WhatsApp Image 2025-11-15 at 12.18.41 PM.jpeg" alt="Equipo AF"/>
     </section>
 
-    <!-- Sección Descarga de Documentos -->
-    <section id="recursos">
+    <section id="oferta">
+      <h2>Oferta Académica</h2>
+      <img src="Ritmo Intensivo.jpeg" alt="Ritmo Intensivo"/>
+      <img src="Ritmo Regular Plus.jpeg" alt="Ritmo Regular Plus"/>
+      <img src="Ritmo Regular.jpeg" alt="Ritmo Regular"/>
+      <img src="Ritmo Básico.jpeg" alt="Ritmo Básico"/>
+      <img src="cursos particulares.jpeg" alt="Cursos Particulares"/>
+    </section>
+
+    <section id="descargas">
       <h2>Documentos Descargables</h2>
-      <p>Descarga información adicional sobre nuestros cursos y reglamentos:</p>
-      <div class="download-buttons">
-        <a href="catalago%20af.pdf" download>Catálogo de Cursos</a>
-        <a href="infograf%C3%ADa%20clases.pdf" download>Infografía de Clases</a>
-        <a href="Reglamento%20clases%20particulares.pdf" download>Reglamento Clases Particulares</a>
-        <a href="Reglamento%20interno.pdf" download>Reglamento Interno</a>
-      </div>
+      <ul>
+        <li><a href="catalago af.pdf" download>📄 Catálogo de Cursos</a></li>
+        <li><a href="infografía clases.pdf" download>📄 Infografía de Inscripciones</a></li>
+        <li><a href="Programa cinéma-carrefour (1).pdf" download>📽️ Programación de Cine</a></li>
+        <li><a href="Reglamento clases particulares.pdf" download>📘 Reglamento Clases Particulares</a></li>
+        <li><a href="Reglamento interno.pdf" download>📘 Reglamento Interno</a></li>
+      </ul>
     </section>
 
-    <!-- Sección Multimedia (Galería de imágenes y videos) -->
-    <section id="multimedia">
-      <h2>Galería Multimedia</h2>
-      <h3>Videos</h3>
-      <div class="videos">
-        <video src="WhatsApp%20Video%202025-11-15%20at%2012.17.10%20PM.mp4" controls>
-          Tu navegador no soporta este video.
-        </video>
-        <video src="WhatsApp%20Video%202025-11-15%20at%2012.17.12%20PM.mp4" controls>
-          Tu navegador no soporta este video.
-        </video>
-        <video src="WhatsApp%20Video%202025-11-15%20at%2012.17.13%20PM.mp4" controls>
-          Tu navegador no soporta este video.
-        </video>
-      </div>
-      <h3>Fotos</h3>
-      <div class="gallery">
-        <img src="WhatsApp%20Image%202025-11-15%20at%2012.17.13%20PM.jpeg" alt="Galería foto 1">
-        <img src="WhatsApp%20Image%202025-11-15%20at%2012.17.14%20PM.jpeg" alt="Galería foto 2">
-        <img src="WhatsApp%20Image%202025-11-15%20at%2012.17.14%20PM%20%281%29.jpeg" alt="Galería foto 3">
-        <img src="WhatsApp%20Image%202025-11-15%20at%2012.17.14%20PM%20%282%29.jpeg" alt="Galería foto 4">
-        <img src="WhatsApp%20Image%202025-11-15%20at%2012.17.14%20PM%20%283%29.jpeg" alt="Galería foto 5">
-        <img src="WhatsApp%20Image%202025-11-15%20at%2012.18.14%20PM.jpeg" alt="Galería foto 6">
-      </div>
+    <section id="contacto">
+      <h2>Contacto</h2>
+      <p>WhatsApp: 967 172 1870</p>
+      <p>Correo: administracionsancristobal@alianzafr.edu.mx</p>
+      <p>Comunicación: comunicacionsancristobal@alianzafr.edu.mx</p>
+      <p>Dirección: direccionsancristobal@alianzafr.edu.mx</p>
+      <p>Dirección Física: Av. la Almolonga 80, Sta Lucía, Barrio Sta Lucía, 29250 San Cristóbal de las Casas, Chis.</p>
+      <p><a href="https://maps.app.goo.gl/38Qwnck1SPrcxafX7" target="_blank">Ver en Google Maps</a></p>
+    </section>
+
+    <section id="banco">
+      <h2>Datos Bancarios</h2>
+      <p><strong>ALIANZA FRANCO MEXICANA DE SAN CRISTÓBAL A.C.</strong></p>
+      <p>BBVA Bancomer</p>
+      <p>Núm. de Cuenta: 0186832806</p>
+      <p>Clabe: 012130001868328069</p>
+      <p><strong>Nota:</strong> No nos hacemos responsables de pagos erróneos o sin autorización expresa del equipo administrativo.</p>
     </section>
   </main>
 
   <footer>
-    <p>Teléfono: <a href="tel:9671721870">967 172 1870</a> &nbsp; | &nbsp; 
-       Email: <a href="mailto:administracionsancristobal@alianzafr.edu.mx">administracionsancristobal@alianzafr.edu.mx</a></p>
-    <p>Dirección: Av. la Almolonga 80, Barrio Sta. Lucía, 29250 San Cristóbal de las Casas, Chis. – 
-       <a href="https://maps.app.goo.gl/38Qwnck1SPrcxafX7" target="_blank">Ver en Google Maps</a></p>
-    <p>Síguenos en Instagram: <a href="https://instagram.com/afsancristobal" target="_blank">@afsancristobal</a></p>
+    <p>&copy; 2025 Alliance Française San Cristóbal. Todos los derechos reservados.</p>
   </footer>
-
 </body>
 </html>
