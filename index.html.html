@@ -1,0 +1,1408 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Alliance Française de San Cristóbal de Las Casas - Cursos de francés, certificaciones DELF/DALF, programación cultural y conexión con el mundo francófono en Chiapas, México.">
+    <meta name="keywords" content="francés, cursos de francés, DELF, DALF, Alliance Française, San Cristóbal, Chiapas, certificación francés, aprender francés">
+    <meta name="author" content="Alliance Française de San Cristóbal de Las Casas">
+    <meta property="og:title" content="Alliance Française San Cristóbal | Donde el Francés se Vive y se Comparte">
+    <meta property="og:description" content="La casa de Francia en San Cristóbal de Las Casas. Cursos de francés, certificaciones internacionales y programación cultural.">
+    <meta property="og:type" content="website">
+    <title>Alliance Française San Cristóbal | Donde el Francés se Vive y se Comparte</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --rojo: #C8102E;
+            --rojo-oscuro: #9E0C24;
+            --negro: #1a1a1a;
+            --blanco: #ffffff;
+            --gris-claro: #f8f8f8;
+            --gris: #666666;
+            --gris-oscuro: #333333;
+            --dorado: #c9a227;
+            --azul-francia: #002395;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--negro);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        /* ==================== HEADER ==================== */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: var(--blanco);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            background: rgba(255,255,255,0.98);
+            box-shadow: 0 2px 30px rgba(0,0,0,0.15);
+        }
+
+        .header-inner {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0.8rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+        }
+
+        .logo-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--negro);
+        }
+
+        .logo-text span {
+            color: var(--rojo);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--negro);
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        nav a:hover {
+            color: var(--rojo);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--rojo);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: var(--rojo);
+            color: var(--blanco) !important;
+            padding: 0.7rem 1.8rem;
+            border-radius: 30px;
+            font-weight: 600;
+            border: 2px solid var(--rojo);
+        }
+
+        .nav-cta:hover {
+            background: var(--rojo-oscuro);
+            border-color: var(--rojo-oscuro);
+        }
+
+        .nav-cta::after {
+            display: none;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--negro);
+        }
+
+        /* ==================== HERO ==================== */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, rgba(200,16,46,0.92), rgba(158,12,36,0.95)),
+                        url('images/Fachada_externa_de_noche.jpg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--blanco);
+            padding: 8rem 2rem 4rem;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 150px;
+            background: linear-gradient(to top, var(--blanco), transparent);
+        }
+
+        .hero-content {
+            max-width: 900px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+            font-weight: 300;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2.5rem;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-white {
+            background: var(--blanco);
+            color: var(--rojo);
+        }
+
+        .btn-white:hover {
+            background: var(--gris-claro);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--blanco);
+            color: var(--blanco);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background: var(--blanco);
+            color: var(--rojo);
+        }
+
+        .btn-rojo {
+            background: var(--rojo);
+            color: var(--blanco);
+            border: 2px solid var(--rojo);
+        }
+
+        .btn-rojo:hover {
+            background: var(--rojo-oscuro);
+            border-color: var(--rojo-oscuro);
+            transform: translateY(-3px);
+        }
+
+        /* ==================== SECTIONS ==================== */
+        section {
+            padding: 6rem 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--negro);
+        }
+
+        .section-title h2 span {
+            color: var(--rojo);
+        }
+
+        .section-title p {
+            font-size: 1.1rem;
+            color: var(--gris);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ==================== BIENVENIDA ==================== */
+        .bienvenida {
+            background: var(--gris-claro);
+        }
+
+        .bienvenida-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .bienvenida-img img {
+            border-radius: 15px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+
+        .bienvenida-text h3 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--negro);
+        }
+
+        .bienvenida-text h3 span {
+            color: var(--rojo);
+        }
+
+        .bienvenida-text p {
+            margin-bottom: 1.5rem;
+            color: var(--gris);
+            font-size: 1.05rem;
+        }
+
+        .features-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .feature-item i {
+            color: var(--rojo);
+            font-size: 1.2rem;
+        }
+
+        .feature-item span {
+            font-size: 0.95rem;
+        }
+
+        /* ==================== INSTALACIONES ==================== */
+        .instalaciones-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .instalacion-card {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            height: 280px;
+            cursor: pointer;
+        }
+
+        .instalacion-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .instalacion-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .instalacion-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 2rem 1.5rem;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: var(--blanco);
+            transform: translateY(100%);
+            transition: transform 0.4s ease;
+        }
+
+        .instalacion-card:hover .instalacion-overlay {
+            transform: translateY(0);
+        }
+
+        .instalacion-overlay h4 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .instalacion-overlay p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* ==================== ALIANZAS ==================== */
+        .alianzas {
+            background: var(--gris-claro);
+        }
+
+        .alianzas-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .alianza-card {
+            background: var(--blanco);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+
+        .alianza-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+
+        .alianza-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .alianza-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .alianza-card:hover .alianza-img img {
+            transform: scale(1.1);
+        }
+
+        .alianza-content {
+            padding: 1.5rem;
+        }
+
+        .alianza-content h4 {
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+            color: var(--negro);
+        }
+
+        .alianza-content p {
+            font-size: 0.9rem;
+            color: var(--gris);
+            line-height: 1.6;
+        }
+
+        /* ==================== RECONOCIMIENTOS ==================== */
+        .reconocimientos {
+            background: linear-gradient(135deg, var(--negro) 0%, #2d2d2d 100%);
+            color: var(--blanco);
+        }
+
+        .reconocimientos .section-title h2 {
+            color: var(--blanco);
+        }
+
+        .reconocimientos .section-title p {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .reconocimientos-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .reconocimiento-card {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            height: 300px;
+        }
+
+        .reconocimiento-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .reconocimiento-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .reconocimiento-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+        }
+
+        .reconocimiento-info h4 {
+            font-size: 1.1rem;
+            color: var(--dorado);
+            margin-bottom: 0.3rem;
+        }
+
+        .reconocimiento-info p {
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+
+        /* ==================== EQUIPO ==================== */
+        .equipo {
+            background: var(--gris-claro);
+        }
+
+        .equipo-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .equipo-card {
+            background: var(--blanco);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .equipo-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+
+        .equipo-foto {
+            height: 280px;
+            overflow: hidden;
+        }
+
+        .equipo-foto img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+        }
+
+        .equipo-info {
+            padding: 1.5rem;
+        }
+
+        .equipo-info h4 {
+            font-size: 1.3rem;
+            margin-bottom: 0.3rem;
+            color: var(--negro);
+        }
+
+        .equipo-info .cargo {
+            color: var(--rojo);
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .equipo-info .email {
+            font-size: 0.8rem;
+            color: var(--gris);
+        }
+
+        /* ==================== CONTACTO ==================== */
+        .contacto {
+            background: linear-gradient(135deg, var(--rojo), var(--rojo-oscuro));
+            color: var(--blanco);
+        }
+
+        .contacto .section-title h2 {
+            color: var(--blanco);
+        }
+
+        .contacto .section-title p {
+            color: rgba(255,255,255,0.85);
+        }
+
+        .contacto-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contacto-info h3 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .contacto-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contacto-item i {
+            font-size: 1.5rem;
+            color: var(--dorado);
+            margin-top: 0.2rem;
+            width: 30px;
+        }
+
+        .contacto-item h4 {
+            font-size: 1rem;
+            margin-bottom: 0.3rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+        }
+
+        .contacto-item p,
+        .contacto-item a {
+            color: rgba(255,255,255,0.9);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .contacto-item a:hover {
+            color: var(--dorado);
+        }
+
+        .contacto-correos {
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .contacto-correos h4 {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .correo-departamento {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .correo-departamento:last-child {
+            border-bottom: none;
+        }
+
+        .correo-departamento span {
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+
+        .correo-departamento a {
+            font-size: 0.85rem;
+        }
+
+        .redes-sociales {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .redes-sociales a {
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            transition: all 0.3s ease;
+        }
+
+        .redes-sociales a:hover {
+            background: var(--blanco);
+            color: var(--rojo);
+            transform: translateY(-5px);
+        }
+
+        .contacto-mapa {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        }
+
+        .contacto-mapa iframe {
+            width: 100%;
+            height: 450px;
+            border: none;
+        }
+
+        /* ==================== DATOS BANCARIOS ==================== */
+        .datos-bancarios {
+            background: rgba(255,255,255,0.05);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .datos-bancarios h4 {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            color: var(--dorado);
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .datos-bancarios p {
+            font-size: 0.9rem;
+            margin-bottom: 0.3rem;
+            opacity: 0.9;
+        }
+
+        /* ==================== FOOTER ==================== */
+        footer {
+            background: var(--negro);
+            color: var(--blanco);
+            padding: 3rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .footer-logo img {
+            height: 40px;
+        }
+
+        .footer-logo span {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--blanco);
+        }
+
+        .footer-copy {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.85rem;
+        }
+
+        /* ==================== WHATSAPP FLOTANTE ==================== */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--blanco);
+            font-size: 2rem;
+            box-shadow: 0 5px 25px rgba(37,211,102,0.4);
+            z-index: 999;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 35px rgba(37,211,102,0.5);
+        }
+
+        /* ==================== RESPONSIVE ==================== */
+        @media (max-width: 1200px) {
+            .equipo-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .bienvenida-grid,
+            .contacto-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .alianzas-grid,
+            .reconocimientos-grid,
+            .instalaciones-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .section-title h2 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--blanco);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .alianzas-grid,
+            .reconocimientos-grid,
+            .instalaciones-grid,
+            .equipo-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .features-list {
+                grid-template-columns: 1fr;
+            }
+
+            .bienvenida-text h3 {
+                font-size: 2rem;
+            }
+
+            section {
+                padding: 4rem 1.5rem;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-btns {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .header-inner {
+                padding: 0.8rem 1rem;
+            }
+
+            .logo img {
+                height: 40px;
+            }
+
+            .logo-text {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ==================== HEADER ==================== -->
+<header id="header">
+    <div class="header-inner">
+        <a href="#inicio" class="logo">
+            <img src="images/Logo_AF_circulo_ROJO.png" alt="Logo Alliance Française San Cristóbal">
+            <div class="logo-text">Alliance <span>Française</span></div>
+        </a>
+        <nav>
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul id="nav-menu">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#instalaciones">Instalaciones</a></li>
+                <li><a href="#alianzas">Alianzas</a></li>
+                <li><a href="#reconocimientos">Colaboraciones</a></li>
+                <li><a href="#equipo">Equipo</a></li>
+                <li><a href="#contacto" class="nav-cta">Contáctanos</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- ==================== HERO ==================== -->
+<section class="hero" id="inicio">
+    <div class="hero-content">
+        <!--
+            Título y descripción principal.
+            Ajustamos el texto para enfatizar la propuesta de valor y la invitación abierta, tal como se sugiere en la auditoría.
+            Se sustituyen frases genéricas por un mensaje más inspirador y cercano al público chiapaneco, manteniendo la identidad institucional.
+        -->
+        <h1>Vive y Comparte el Francés en San Cristóbal</h1>
+        <p>Somos tu casa de Francia en San Cristóbal de Las Casas. Ofrecemos excelencia educativa y cultural para conectar Chiapas con el mundo francófono.</p>
+        <div class="hero-btns">
+            <a href="#contacto" class="btn btn-white">
+                <i class="fas fa-envelope"></i> Inscríbete Ahora
+            </a>
+            <a href="https://wa.me/529671721870" target="_blank" class="btn btn-outline">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== BIENVENIDA / NOSOTROS ==================== -->
+<section class="bienvenida" id="nosotros">
+    <div class="container">
+        <div class="bienvenida-grid">
+            <div class="bienvenida-img">
+                <img src="images/huertos_en_la_entrada.jpg" alt="Nueva sede Alliance Française San Cristóbal en Avenida La Almolonga" loading="lazy">
+            </div>
+            <div class="bienvenida-text">
+                <h3>Nuestra Sede en <span>Avenida La Almolonga</span></h3>
+                <p>Promovemos la lengua francesa y las culturas francófonas en San Cristóbal de Las Casas ofreciendo una enseñanza de calidad, accesible y adaptada a cada persona.</p>
+                <p>Nuestra visión es ser un referente regional de excelencia lingüística y cultural: un lugar abierto, inclusivo y creativo donde convergen estudiantes, artistas, docentes y soñadores de todas las edades.</p>
+                <div class="features-list">
+                    <div class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Salones amplios y ventilados</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Jardines y áreas verdes</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Huerto urbano comunitario</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Mediateca con +2000 libros</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Espacios para eventos culturales</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Certificaciones DELF/DALF</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== INSTALACIONES ==================== -->
+<section class="instalaciones" id="instalaciones">
+    <div class="container">
+        <div class="section-title">
+            <h2>Nuestras <span>Instalaciones</span></h2>
+            <p>Un espacio diseñado para el aprendizaje, la cultura y el encuentro.</p>
+        </div>
+        <div class="instalaciones-grid">
+            <div class="instalacion-card">
+                <img src="images/aulas_1.jpg" alt="Aula de clases con proyección - Alliance Française San Cristóbal" loading="lazy">
+                <div class="instalacion-overlay">
+                    <h4>Aulas Multimedia</h4>
+                    <p>Equipadas con proyector y recursos audiovisuales</p>
+                </div>
+            </div>
+            <div class="instalacion-card">
+                <img src="images/mediateca.jpg" alt="Mediateca con biblioteca - Alliance Française San Cristóbal" loading="lazy">
+                <div class="instalacion-overlay">
+                    <h4>Mediateca</h4>
+                    <p>Más de 2,000 libros, películas y recursos en francés</p>
+                </div>
+            </div>
+            <div class="instalacion-card">
+                <img src="images/jardin.jpg" alt="Jardín interior - Alliance Française San Cristóbal" loading="lazy">
+                <div class="instalacion-overlay">
+                    <h4>Jardín Interior</h4>
+                    <p>Espacio verde para actividades al aire libre</p>
+                </div>
+            </div>
+            <div class="instalacion-card">
+                <img src="images/foto_huerto.jpg" alt="Huerto urbano - Alliance Française San Cristóbal" loading="lazy">
+                <div class="instalacion-overlay">
+                    <h4>Huerto Urbano</h4>
+                    <p>Proyecto comunitario de agricultura urbana</p>
+                </div>
+            </div>
+            <div class="instalacion-card">
+                <img src="images/fachada.png" alt="Fachada exterior - Alliance Française San Cristóbal" loading="lazy">
+                <div class="instalacion-overlay">
+                    <h4>Fachada Principal</h4>
+                    <p>Arquitectura colonial con toques modernos</p>
+                </div>
+            </div>
+            <div class="instalacion-card">
+                <img src="images/Entrada_de_la_AF.jpg" alt="Entrada nocturna decorada - Alliance Française San Cristóbal" loading="lazy">
+                <div class="instalacion-overlay">
+                    <h4>Patio Central</h4>
+                    <p>Espacio para eventos culturales y celebraciones</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== ALIANZAS ==================== -->
+<section class="alianzas" id="alianzas">
+    <div class="container">
+        <div class="section-title">
+            <h2>Nuestras <span>Alianzas y Programas</span> Educativos</h2>
+            <p>Conexiones estratégicas y proyectos formativos que enriquecen la experiencia de aprendizaje.</p>
+        </div>
+        <div class="alianzas-grid">
+            <div class="alianza-card">
+                <div class="alianza-img">
+                    <img src="images/cavilam_firma_de_acuerdo.jpg" alt="Convenio con CAVILAM Alliance Française" loading="lazy">
+                </div>
+                <div class="alianza-content">
+                    <h4>CAVILAM Alliance Française</h4>
+                    <p>Viajes lingüísticos a Vichy, Francia. Inmersión total con clases intensivas, alojamiento en familias y actividades culturales.</p>
+                </div>
+            </div>
+            <div class="alianza-card">
+                <div class="alianza-img">
+                    <img src="images/estudiantes_de_gastronomia_Parmentier.jpg" alt="Estudiantes de gastronomía École Parmentier" loading="lazy">
+                </div>
+                <div class="alianza-content">
+                    <h4>École Parmentier</h4>
+                    <p>Cocina francesa + huerto escolar. Sembrar, cocinar y compartir: una forma auténtica de vivir el francés con las manos en la tierra.</p>
+                </div>
+            </div>
+            <div class="alianza-card">
+                <div class="alianza-img">
+                    <img src="images/Con_la_Directora_de_la_Salle.jpg" alt="Alianza con Colegio La Salle" loading="lazy">
+                </div>
+                <div class="alianza-content">
+                    <h4>Colegio La Salle</h4>
+                    <p>Certificación internacional DELF para estudiantes de primaria y secundaria. Formamos alumnos certificados con proyección global.</p>
+                </div>
+            </div>
+            <div class="alianza-card">
+                <div class="alianza-img">
+                    <img src="images/aulas_3.jpg" alt="Examen DELF - Alianza con ITAES" loading="lazy">
+                </div>
+                <div class="alianza-content">
+                    <h4>ITAES</h4>
+                    <p>Adaptación curricular y formación docente. Integrando el francés en programas académicos de educación superior.</p>
+                </div>
+            </div>
+            <div class="alianza-card">
+                <div class="alianza-img">
+                    <img src="images/UNICACH_Y_Consul_honorario.jpg" alt="Alianza con UNICACH y Cónsul Honorario de Francia" loading="lazy">
+                </div>
+                <div class="alianza-content">
+                    <h4>UNICACH</h4>
+                    <p>Centro de idiomas universitario. Colaboración académica para estudiantes y profesionales de Chiapas.</p>
+                </div>
+            </div>
+            <div class="alianza-card">
+                <div class="alianza-img">
+                    <img src="images/DELF.jpg" alt="Certificaciones DELF DALF" loading="lazy">
+                </div>
+                <div class="alianza-content">
+                    <h4>DELF/DALF</h4>
+                    <p>Centro aplicador autorizado. Diplomas oficiales del Ministerio de Educación de Francia, reconocidos en 180+ países.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== RECONOCIMIENTOS ==================== -->
+<section class="reconocimientos" id="reconocimientos">
+    <div class="container">
+        <div class="section-title">
+            <!-- Renombramos la sección para reflejar mejor su propósito y asegurar coherencia semántica. -->
+            <h2>Alianzas y <span style="color: var(--dorado);">Colaboraciones Internacionales</span></h2>
+            <p>Presentamos a nuestros socios y colaboradores destacados que respaldan nuestra misión a nivel global.</p>
+        </div>
+        <div class="reconocimientos-grid">
+            <!-- Michel Boiron: formador y ex director del CAVILAM Alliance Française -->
+            <div class="reconocimiento-card">
+                <img src="images/Director_y_Michel_BOIRON.jpg" alt="Encuentro con Michel Boiron en CAVILAM" loading="lazy">
+                <div class="reconocimiento-info">
+                    <h4>Michel Boiron</h4>
+                    <p>Formador y ex director del CAVILAM Alliance Française</p>
+                </div>
+            </div>
+            <!-- Embajada de Francia en México: respaldo institucional -->
+            <div class="reconocimiento-card">
+                <img src="images/Presidenta_en_la_casa_de_la_embajadora.jpg" alt="Recepción en la Embajada de Francia" loading="lazy">
+                <div class="reconocimiento-info">
+                    <h4>Embajada de Francia en México</h4>
+                    <p>Respaldo institucional y eventos conjuntos</p>
+                </div>
+            </div>
+            <!-- Clémence Mayoral: presidenta de la FAMAC -->
+            <div class="reconocimiento-card">
+                <img src="images/Con_Clemence_Mayoral.jpg" alt="Con Clémence Mayoral de la Federación de Alianzas" loading="lazy">
+                <div class="reconocimiento-info">
+                    <h4>Clémence Mayoral</h4>
+                    <p>Presidenta de la Federación Mexicana de Alianzas Francesas</p>
+                </div>
+            </div>
+            <!-- Délégation du Québec: proyectos culturales y educativos -->
+            <div class="reconocimiento-card">
+                <img src="images/visita_de_la_Delegation_du_quebec.png" alt="Visita de la Delegación del Quebec" loading="lazy">
+                <div class="reconocimiento-info">
+                    <h4>Délégation du Québec</h4>
+                    <p>Proyectos culturales y educativos en colaboración</p>
+                </div>
+            </div>
+            <!-- Tour de Cine Francés: programación cultural -->
+            <div class="reconocimiento-card">
+                <img src="images/Tour_de_Cine_Frances1.jpg" alt="Tour de Cine Francés en Chiapas" loading="lazy">
+                <div class="reconocimiento-info">
+                    <h4>Tour de Cine Francés</h4>
+                    <p>Programación anual de cine francófono</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== EQUIPO ==================== -->
+<section class="equipo" id="equipo">
+    <div class="container">
+        <div class="section-title">
+            <h2>Nuestro <span>Equipo</span></h2>
+            <p>Profesionales comprometidos con tu aprendizaje y desarrollo.</p>
+        </div>
+        <div class="equipo-grid">
+            <div class="equipo-card">
+                <div class="equipo-foto">
+                    <img src="images/2.png" alt="Miguel Tillero - Director General Alliance Française San Cristóbal" loading="lazy">
+                </div>
+                <div class="equipo-info">
+                    <h4>Miguel Tillero</h4>
+                    <span class="cargo">Director General</span>
+                    <a href="mailto:direccionsancristobal@alianzafr.edu.mx" class="email">direccionsancristobal@alianzafr.edu.mx</a>
+                </div>
+            </div>
+            <div class="equipo-card">
+                <div class="equipo-foto">
+                    <img src="images/3.png" alt="Nancy Díaz - Responsable Administrativa Alliance Française San Cristóbal" loading="lazy">
+                </div>
+                <div class="equipo-info">
+                    <h4>Nancy Díaz</h4>
+                    <span class="cargo">Responsable Administrativa</span>
+                    <a href="mailto:administracionsancristobal@alianzafr.edu.mx" class="email">administracionsancristobal@alianzafr.edu.mx</a>
+                </div>
+            </div>
+            <div class="equipo-card">
+                <div class="equipo-foto">
+                    <img src="images/4.png" alt="Cayro Valdivieso - Comunicación y Redes Alliance Française San Cristóbal" loading="lazy">
+                </div>
+                <div class="equipo-info">
+                    <h4>Cayro Valdivieso</h4>
+                    <span class="cargo">Comunicación y Redes</span>
+                    <a href="mailto:comunicacionsancristobal@alianzafr.edu.mx" class="email">comunicacionsancristobal@alianzafr.edu.mx</a>
+                </div>
+            </div>
+            <div class="equipo-card">
+                <div class="equipo-foto">
+                    <img src="images/Allison_Chau.jpg" alt="Allison Chau - Docente de Francés Alliance Française San Cristóbal" loading="lazy">
+                </div>
+                <div class="equipo-info">
+                    <h4>Allison Chau</h4>
+                    <span class="cargo">Docente de Francés</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== CONTACTO ==================== -->
+<section class="contacto" id="contacto">
+    <div class="container">
+        <div class="section-title">
+            <h2>Contáctanos</h2>
+            <p>Estamos listos para acompañarte en tu viaje hacia el mundo francófono.</p>
+        </div>
+        <div class="contacto-grid">
+            <div class="contacto-info">
+                <h3>¿Listo para comenzar?</h3>
+                
+                <div class="contacto-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h4>Dirección</h4>
+                        <p>Av. La Almolonga 80, Barrio Santa Lucía<br>29250 San Cristóbal de Las Casas, Chiapas</p>
+                    </div>
+                </div>
+                
+                <div class="contacto-item">
+                    <i class="fab fa-whatsapp"></i>
+                    <div>
+                        <h4>WhatsApp</h4>
+                        <a href="https://wa.me/529671721870">967 172 1870</a>
+                    </div>
+                </div>
+                
+                <div class="contacto-correos">
+                    <h4><i class="fas fa-envelope"></i> Correos por Departamento</h4>
+                    <div class="correo-departamento">
+                        <span>Administración:</span>
+                        <a href="mailto:administracionsancristobal@alianzafr.edu.mx">administracionsancristobal@alianzafr.edu.mx</a>
+                    </div>
+                    <div class="correo-departamento">
+                        <span>Comunicación:</span>
+                        <a href="mailto:comunicacionsancristobal@alianzafr.edu.mx">comunicacionsancristobal@alianzafr.edu.mx</a>
+                    </div>
+                    <div class="correo-departamento">
+                        <span>Dirección:</span>
+                        <a href="mailto:direccionsancristobal@alianzafr.edu.mx">direccionsancristobal@alianzafr.edu.mx</a>
+                    </div>
+                </div>
+
+                <div class="datos-bancarios">
+                    <h4><i class="fas fa-university"></i> Datos Bancarios</h4>
+                    <p><strong>ALIANZA FRANCO MEXICANA DE SAN CRISTÓBAL A.C.</strong></p>
+                    <p>Banco: BBVA</p>
+                    <p>Cuenta: 0186832806</p>
+                    <p>CLABE: 012130001868328069</p>
+                </div>
+
+                <div class="redes-sociales">
+                    <a href="https://facebook.com/alianzafrancesasancristobal" target="_blank" title="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://instagram.com/afdesancristobal" target="_blank" title="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://m.me/alianzafrancesasancristobal" target="_blank" title="Messenger">
+                        <i class="fab fa-facebook-messenger"></i>
+                    </a>
+                    <a href="https://wa.me/529671721870" target="_blank" title="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="contacto-mapa">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3820.8!2d-92.6375!3d16.7370!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85ed456e1c17ca4d%3A0x5d5a5c5c5c5c5c5c!2sAv.%20La%20Almolonga%2080%2C%20Barrio%20Santa%20Luc%C3%ADa%2C%2029250%20San%20Crist%C3%B3bal%20de%20las%20Casas%2C%20Chis.!5e0!3m2!1ses!2smx!4v1700000000000" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="Ubicación Alliance Française San Cristóbal">
+                </iframe>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== FOOTER ==================== -->
+<footer>
+    <div class="footer-content">
+        <div class="footer-logo">
+            <img src="images/Logo_AF_circulo_ROJO.png" alt="Logo Alliance Française">
+            <span>Alliance Française San Cristóbal</span>
+        </div>
+        <div class="footer-links">
+            <a href="https://facebook.com/alianzafrancesasancristobal" target="_blank">Facebook</a>
+            <a href="https://instagram.com/afdesancristobal" target="_blank">Instagram</a>
+            <a href="https://m.me/alianzafrancesasancristobal" target="_blank">Messenger</a>
+            <a href="https://wa.me/529671721870" target="_blank">WhatsApp</a>
+        </div>
+        <div class="footer-copy">
+            © 2025 Alliance Française de San Cristóbal de Las Casas. Todos los derechos reservados.
+        </div>
+    </div>
+</footer>
+
+<!-- ==================== WHATSAPP FLOTANTE ==================== -->
+<a href="https://wa.me/529671721870" target="_blank" class="whatsapp-float" title="Contáctanos por WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+<!-- ==================== JAVASCRIPT ==================== -->
+<script>
+    // Toggle menú móvil
+    function toggleMenu() {
+        document.getElementById('nav-menu').classList.toggle('active');
+    }
+
+    // Header con scroll
+    window.addEventListener('scroll', function() {
+        const header = document.getElementById('header');
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+
+    // Smooth scroll para enlaces internos
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                const headerHeight = document.getElementById('header').offsetHeight;
+                const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+                // Cerrar menú móvil si está abierto
+                document.getElementById('nav-menu').classList.remove('active');
+            }
+        });
+    });
+
+    // Cerrar menú al hacer clic fuera
+    document.addEventListener('click', function(e) {
+        const nav = document.querySelector('nav');
+        const menuToggle = document.querySelector('.menu-toggle');
+        if (!nav.contains(e.target) && !menuToggle.contains(e.target)) {
+            document.getElementById('nav-menu').classList.remove('active');
+        }
+    });
+</script>
+
+
+<section id="mensaje-director" class="mensaje-director" style="padding: 2rem 1rem; background-color: #f9f9f9;">
+  <div class="container" style="max-width: 800px; margin: auto;">
+    <h2 style="text-align: center;">Mensaje del Director</h2>
+    <p style="text-align: center;">Palabras del profesor Miguel Tillero, director de la Alliance Française San Cristóbal.</p>
+    <video controls width="100%">
+      <source src="video af.mp4" type="video/mp4">
+      Tu navegador no soporta video.
+    </video>
+  </div>
+</section>
+
+</body>
+</html>
