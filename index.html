@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AF SCLC | Instrumento Integral de Evaluación (ULTRA 2026)</title>
+  <link rel="icon" href="assets/logo.png" />
+  <style>/* AF SCLC — Instrumento Integral de Evaluación (ULTRA) */
+:root{
+  --af-red:#FF0000;
+  --af-red-dark:#C60000;
+  --ink:#171717;
+  --text:#2b2b2b;
+  --muted:#6f6f6f;
+  --bg:#f6f7f9;
+  --card:#ffffff;
+  --line:#e8e9ee;
+  --shadow: 0 12px 40px rgba(0,0,0,.10);
+  --shadow-soft: 0 8px 22px rgba(0,0,0,.06);
+  --radius:18px;
+  --radius-sm:12px;
+  --green:#1f9d55;
+  --amber:#d97706;
+  --red:#dc2626;
+  --blue:#2563eb;
+  --focus: 0 0 0 4px rgba(255,0,0,.12);
+  --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: var(--sans);
+  color: var(--text);
+  background: radial-gradient(1200px 700px at 20% 10%, rgba(255,0,0,.08), transparent 50%),
+              radial-gradient(1000px 600px at 90% 0%, rgba(37,99,235,.06), transparent 55%),
+              var(--bg);
+  line-height:1.55;
+}
+a{color:inherit}
+.container{max-width:1200px;margin:0 auto;padding:28px 18px 80px}
+.topbar{
+  position:sticky;top:0;z-index:50;
+  backdrop-filter:saturate(180%) blur(10px);
+  background: rgba(246,247,249,.72);
+  border-bottom:1px solid rgba(0,0,0,.06);
+}
+.topbar-inner{max-width:1200px;margin:0 auto;padding:10px 18px;display:flex;gap:14px;align-items:center;justify-content:space-between}
+.brand{display:flex;gap:12px;align-items:center;min-width:260px}
+.brand img{width:44px;height:44px;object-fit:contain;border-radius:10px;background:#fff;border:1px solid var(--line);padding:6px}
+.brand .meta{display:flex;flex-direction:column;gap:2px}
+.brand .meta strong{font-size:13px;color:var(--ink)}
+.brand .meta span{font-size:12px;color:var(--muted)}
+.badge{
+  font-size:11px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  padding:8px 10px;
+  border-radius:999px;
+  border:1px solid rgba(255,0,0,.22);
+  color:var(--af-red-dark);
+  background: rgba(255,0,0,.06);
+}
+.actions{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+.btn{
+  appearance:none;border:1px solid rgba(0,0,0,.12);
+  background:#fff;color:var(--ink);
+  padding:10px 12px;border-radius:999px;
+  font-weight:650;font-size:13px;
+  display:inline-flex;align-items:center;gap:8px;
+  cursor:pointer;transition:.15s ease;
+  box-shadow: 0 6px 14px rgba(0,0,0,.06);
+}
+.btn:hover{transform:translateY(-1px);box-shadow:0 10px 20px rgba(0,0,0,.08)}
+.btn:active{transform:translateY(0px)}
+.btn.primary{background:var(--af-red);color:#fff;border-color:var(--af-red)}
+.btn.ghost{background:transparent;border-color:rgba(0,0,0,.14);box-shadow:none}
+.btn.warn{background:rgba(220,38,38,.08);border-color:rgba(220,38,38,.25);color:var(--red);box-shadow:none}
+.grid{display:grid;gap:16px}
+.hero{
+  margin-top:18px;
+  background: linear-gradient(135deg, #fff 0%, #fff 40%, rgba(255,0,0,.03) 100%);
+  border:1px solid rgba(0,0,0,.06);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding:26px 24px;
+}
+.hero h1{margin:0;font-size:26px;letter-spacing:-.02em;color:var(--ink)}
+.hero p{margin:10px 0 0;color:var(--muted);max-width:90ch}
+.hero .row{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-top:18px}
+.pill{
+  padding:10px 12px;border-radius:999px;background:rgba(0,0,0,.04);
+  border:1px solid rgba(0,0,0,.06);font-size:12px;color:var(--text)
+}
+.pill b{color:var(--ink)}
+.card{
+  background:var(--card);
+  border:1px solid rgba(0,0,0,.06);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+  padding:22px;
+}
+.card h2{margin:0 0 10px;font-size:18px;color:var(--ink);letter-spacing:-.01em}
+.card p{margin:0;color:var(--muted)}
+.split{display:grid;grid-template-columns: 1.3fr .7fr;gap:16px}
+@media (max-width: 980px){.split{grid-template-columns:1fr}}
+.form-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}
+@media (max-width: 980px){.form-grid{grid-template-columns:1fr}}
+.field{display:flex;flex-direction:column;gap:6px}
+label{font-size:12px;color:var(--muted);font-weight:650}
+input,select,textarea{
+  font: inherit;
+  padding:12px 12px;
+  border-radius: 12px;
+  border:1px solid rgba(0,0,0,.12);
+  background:#fff;
+  transition:.12s ease;
+}
+textarea{min-height:110px;resize:vertical}
+input:focus,select:focus,textarea:focus{outline:none;box-shadow:var(--focus);border-color:rgba(255,0,0,.35)}
+small.help{color:var(--muted);font-size:12px}
+.hr{height:1px;background:var(--line);margin:18px 0}
+.tabs{
+  display:flex;gap:10px;flex-wrap:wrap;margin-top:18px
+}
+.tab{
+  padding:10px 12px;border-radius:999px;border:1px solid rgba(0,0,0,.10);
+  background:#fff;color:var(--ink);cursor:pointer;font-weight:650;font-size:13px;
+}
+.tab[aria-selected="true"]{border-color:rgba(255,0,0,.32);background:rgba(255,0,0,.06);color:var(--af-red-dark)}
+.section{margin-top:16px;display:none}
+.section.active{display:block}
+.area{
+  border:1px solid rgba(0,0,0,.06);
+  border-radius: var(--radius);
+  overflow:hidden;
+  background:#fff;
+  box-shadow: var(--shadow-soft);
+}
+.area header{
+  padding:16px 18px;
+  background: linear-gradient(135deg, rgba(255,0,0,.06), rgba(0,0,0,.00));
+  border-bottom:1px solid var(--line);
+  display:flex;gap:14px;align-items:flex-start;justify-content:space-between;
+  cursor:pointer;
+}
+.area header .title{display:flex;gap:12px;align-items:flex-start}
+.area header .key{
+  width:40px;height:40px;border-radius:14px;
+  background: rgba(255,0,0,.12);
+  color: var(--af-red-dark);
+  display:flex;align-items:center;justify-content:center;
+  font-weight:800;
+}
+.area header h3{margin:0;font-size:16px;color:var(--ink)}
+.area header .meta{margin-top:2px;color:var(--muted);font-size:12px;max-width:70ch}
+.area header .scorebox{
+  display:flex;gap:10px;align-items:center;min-width:220px;justify-content:flex-end
+}
+.score{
+  font-family: var(--mono);
+  font-weight:800;
+  font-size:16px;
+  padding:10px 12px;
+  border-radius:14px;
+  border:1px solid rgba(0,0,0,.10);
+  background:#fff;
+  min-width:92px;text-align:center;
+}
+.dot{width:12px;height:12px;border-radius:999px;background:rgba(0,0,0,.16)}
+.chev{opacity:.6}
+.area .body{display:none;padding:16px 18px}
+.area.expanded .body{display:block}
+.table{
+  width:100%;
+  border-collapse:separate;border-spacing:0 10px;
+}
+.table thead th{
+  text-align:left;font-size:12px;color:var(--muted);font-weight:750;
+  padding:0 10px;
+}
+.table td{
+  background:#fff;
+  border:1px solid rgba(0,0,0,.08);
+  padding:12px 10px;
+  vertical-align:top;
+}
+.table td:first-child{border-top-left-radius:14px;border-bottom-left-radius:14px}
+.table td:last-child{border-top-right-radius:14px;border-bottom-right-radius:14px}
+.crit{
+  display:flex;gap:10px;align-items:flex-start
+}
+.crit .num{
+  width:28px;height:28px;border-radius:10px;background:rgba(0,0,0,.06);
+  display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--ink);font-size:12px;flex-shrink:0
+}
+.crit .txt{display:flex;flex-direction:column;gap:4px}
+.crit .txt b{color:var(--ink)}
+.crit .txt span{color:var(--muted);font-size:12px}
+.raters{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+@media (max-width: 980px){.raters{grid-template-columns:1fr 1fr}}
+.select{
+  width:100%;
+  text-align:center;
+  font-weight:800;
+}
+.select.v5{background:rgba(31,157,85,.10);border-color:rgba(31,157,85,.25);color:var(--green)}
+.select.v4{background:rgba(37,99,235,.08);border-color:rgba(37,99,235,.22);color:var(--blue)}
+.select.v3{background:rgba(217,119,6,.10);border-color:rgba(217,119,6,.25);color:var(--amber)}
+.select.v2{background:rgba(220,38,38,.08);border-color:rgba(220,38,38,.22);color:var(--red)}
+.select.v1{background:rgba(220,38,38,.12);border-color:rgba(220,38,38,.30);color:var(--red)}
+.kpi{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:14px
+}
+@media (max-width: 980px){.kpi{grid-template-columns:1fr 1fr}}
+.kpi .item{
+  background:rgba(0,0,0,.03);
+  border:1px solid rgba(0,0,0,.06);
+  border-radius:16px;
+  padding:14px;
+}
+.kpi .item .lbl{font-size:12px;color:var(--muted);font-weight:750}
+.kpi .item .val{margin-top:6px;font-family:var(--mono);font-weight:900;font-size:20px;color:var(--ink)}
+.note{
+  background:rgba(255,0,0,.05);
+  border:1px dashed rgba(255,0,0,.25);
+  padding:14px;border-radius:16px;color:var(--text);font-size:13px
+}
+.footer{margin-top:30px;color:var(--muted);font-size:12px;text-align:center}
+.canvas-wrap{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start;margin-top:16px}
+@media (max-width: 980px){.canvas-wrap{grid-template-columns:1fr}}
+.canvas-card{border:1px solid rgba(0,0,0,.06);border-radius:18px;background:#fff;padding:16px;box-shadow:var(--shadow-soft)}
+.canvas-card h3{margin:0 0 10px;font-size:14px;color:var(--ink)}
+canvas{width:100%;height:320px}
+@media print{
+  .topbar,.tabs,.actions{display:none !important}
+  body{background:#fff}
+  .container{max-width:100%;padding:0}
+  .hero,.card,.area,.canvas-card{box-shadow:none}
+  .area .body{display:block !important}
+}
+
+        .quick-guide{
+          margin: 12px 0 0 0;
+          padding-left: 18px;
+          display: grid;
+          gap: 10px;
+          color: var(--ink-700);
+        }
+        .quick-guide li{
+          line-height: 1.45;
+        }
+        .quick-guide strong{ color: var(--ink-900); }
+
+</style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div class="brand" title="Documento interno de evaluación">
+        <img src="assets/logo.png" alt="Logo oficial Alliance Française de San Cristóbal de Las Casas" />
+        <div class="meta">
+          <strong>Alliance Française de San Cristóbal de Las Casas</strong>
+          <span>Instrumento Integral de Evaluación — ULTRA 2026</span>
+        </div>
+      </div>
+      <span class="badge">Confidencial • uso interno</span>
+      <div class="actions">
+        <button class="btn ghost" id="btnImport">Importar JSON</button>
+        <input id="fileImport" type="file" accept="application/json" style="display:none" />
+        <button class="btn" id="btnExport">Exportar JSON</button>
+        <button class="btn" id="btnExpand">Expandir todo</button>
+        <button class="btn primary" id="btnPrint">Imprimir / PDF</button>
+        <button class="btn warn" id="btnReset">Reiniciar</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <section class="hero">
+      <h1>Instrumento integral de evaluación, autoevaluación y coevaluación</h1>
+      <p>
+        Esta herramienta se construye <b>sobre funciones y obligaciones derivadas de documentos oficiales</b> (contrato y addendum) y
+        permite capturar calificaciones por actor (Auto / Coe / Dirección / Presidencia), calcular resultados ponderados, y visualizar
+        gráficas de desempeño por área.
+      </p>
+      <div class="row">
+        <div class="pill"><b>Evaluado:</b> <span id="p_evaluado">—</span></div>
+        <div class="pill"><b>Puesto:</b> <span id="p_puesto">—</span></div>
+        <div class="pill"><b>Período:</b> <span id="p_periodo">—</span></div>
+        <div class="pill" id="decisionPill"><b>Pendiente</b></div>
+        <div class="pill" style="margin-left:auto"><span id="status">Listo</span></div>
+      </div>
+
+      <div class="tabs" role="tablist" aria-label="Secciones del instrumento">
+        <button class="tab" aria-selected="true" data-tab="sec_inicio">Inicio</button>
+        <button class="tab" aria-selected="false" data-tab="sec_datos">Datos</button>
+        <button class="tab" aria-selected="false" data-tab="sec_matriz">Matriz</button>
+        <button class="tab" aria-selected="false" data-tab="sec_resultados">Resultados</button>
+        <button class="tab" aria-selected="false" data-tab="sec_observaciones">Observaciones</button>
+        <button class="tab" aria-selected="false" data-tab="sec_anexos">Anexos</button>
+      </div>
+    </section>
+
+    <section class="section active" id="sec_inicio">
+      <div class="split">
+        <div class="card">
+          <h2>Guía de uso (pasos recomendados)</h2>
+            <ol class="quick-guide">
+              <li><strong>Lee el marco del puesto:</strong> revisa las funciones y responsabilidades; la matriz está alineada a ese marco.</li>
+              <li><strong>Autoevaluación:</strong> completa tu columna (<em>Auto</em>) con un criterio por fila y agrega evidencias concretas (documentos, links o ejemplos).</li>
+              <li><strong>Coevaluación:</strong> si aplica, una persona coevaluadora completa su columna (<em>Coe</em>) con observaciones objetivas y evidencias.</li>
+              <li><strong>Evaluación institucional:</strong> Dirección (y, si corresponde, Presidencia) completa su columna (<em>Dir.</em>) y valida evidencias.</li>
+              <li><strong>Resultados:</strong> revisa el tablero, gráficos y decisión sugerida; registra acuerdos y plan 30/60/90.</li>
+              <li><strong>Cierre:</strong> imprime o exporta a PDF para firma y archivo.</li>
+            </ol>
+          <div class="hr"></div>
+          <div class="note">
+            <b>Importante:</b> este instrumento <b>no sustituye</b> obligaciones legales, ni constituye por sí mismo una sanción.
+            Es una herramienta de apreciación y mejora. Mantén la redacción institucional y el cuidado de datos personales.
+          </div>
+        </div>
+        <div class="card">
+          <h2>Escala 1–5</h2>
+          <p style="margin-bottom:14px">Usa la rúbrica para mantener consistencia y trazabilidad.</p>
+          <div class="grid" style="gap:10px">
+            <div class="pill"><b>5 — Excelente:</b> Supera ampliamente las expectativas. Cumplimiento íntegro, anticipación, cero no conformidades críticas.</div><div class="pill"><b>4 — Muy bueno:</b> Cumple con alta calidad y consistencia. Incidencias menores corregidas oportunamente.</div><div class="pill"><b>3 — Satisfactorio:</b> Cumple lo esencial. Requiere seguimiento y mejoras puntuales.</div><div class="pill"><b>2 — Insuficiente:</b> Cumplimiento irregular. Errores recurrentes o retrasos. Requiere plan correctivo inmediato.</div><div class="pill"><b>1 — Crítico:</b> No cumple estándares mínimos. Riesgo institucional o incumplimientos graves.</div>
+          </div>
+          <div class="hr"></div>
+          <small class="help">
+            Umbrales: ≥3.50 Ratificar • 3.00–3.49 Ratificar condicionada • &lt;3.00 No ratificar
+          </small>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="sec_datos">
+      <div class="card">
+        <h2>Datos generales</h2>
+        <p>Campos precargados con datos de ejemplo (pueden editarse libremente).</p>
+        <div class="form-grid">
+          <div class="field"><label>Evaluado</label><input id="m_evaluado" placeholder="Nombre completo" /></div>
+          <div class="field"><label>Puesto</label><input id="m_puesto" placeholder="Puesto oficial" /></div>
+          <div class="field"><label>Evaluador principal</label><input id="m_evaluador" placeholder="Nombre y cargo" /></div>
+
+          <div class="field"><label>Fecha de evaluación</label><input id="m_fecha" type="date" /></div>
+          <div class="field"><label>Inicio del período evaluado</label><input id="m_inicio" type="date" /></div>
+          <div class="field"><label>Fin del período evaluado</label><input id="m_fin" type="date" /></div>
+
+          <div class="field"><label>Addendum vigente desde</label><input id="m_addendum" type="date" /></div>
+          <div class="field" style="grid-column: span 2"><label>Sede</label><input id="m_sede" /></div>
+        </div>
+        <div class="hr"></div>
+        <h2>Ponderaciones por área</h2>
+        <p>Ajusta pesos según tu política interna. Por defecto: A 45% • B 45% • C 10% • D 0%.</p>
+        <div class="form-grid">
+          <div class="field"><label>A) Comunicación institucional (según contrato)</label><input id="w_A" type="number" step="1" min="0" max="100" /></div><div class="field"><label>B) Auditoría financiera documental (según contrato)</label><input id="w_B" type="number" step="1" min="0" max="100" /></div><div class="field"><label>C) Funciones generales y conducta profesional (según contrato)</label><input id="w_C" type="number" step="1" min="0" max="100" /></div><div class="field"><label>D) Procesos operativos complementarios (protocolos internos)</label><input id="w_D" type="number" step="1" min="0" max="100" /></div>
+        </div>
+        <small class="help">Sugerencia: activa D (p. ej. 10%) solo si los procesos complementarios están formalizados por escrito.</small>
+      </div>
+    </section>
+
+    <section class="section" id="sec_matriz">
+      <div class="card">
+        <h2>Matriz de evaluación</h2>
+        <p>
+          Cada criterio admite calificación por actor. El promedio por criterio se calcula con lo que esté capturado (no exige todos los actores).
+          Los promedios por área y el resultado global se actualizan en tiempo real.
+        </p>
+      </div>
+      <div class="grid" style="margin-top:16px" id="areasRoot"></div>
+    </section>
+
+    <section class="section" id="sec_resultados">
+      <div class="card">
+        <h2>Dashboard</h2>
+        <p>Resumen por área y resultado final ponderado.</p>
+        <div class="kpi">
+          <div class="item"><div class="lbl">A) Comunicación institucional (según contrato)</div><div class="val" id="kpi_A">—</div></div><div class="item"><div class="lbl">B) Auditoría financiera documental (según contrato)</div><div class="val" id="kpi_B">—</div></div><div class="item"><div class="lbl">C) Funciones generales y conducta profesional (según contrato)</div><div class="val" id="kpi_C">—</div></div><div class="item"><div class="lbl">D) Procesos operativos complementarios (protocolos internos)</div><div class="val" id="kpi_D">—</div></div>
+          <div class="item"><div class="lbl">Puntaje final ponderado</div><div class="val" id="kpi_final">—</div></div>
+        </div>
+      </div>
+
+      <div class="canvas-wrap">
+        <div class="canvas-card">
+          <h3>Comparativo por actor (Radar por áreas)</h3>
+          <canvas id="radar"></canvas>
+          <small class="help">Si un actor no califica un área, se grafica como 0 para ese eje.</small>
+        </div>
+        <div class="canvas-card">
+          <h3>Resultado global por actor (Barras)</h3>
+          <canvas id="bars"></canvas>
+          <small class="help">Incluye “Promedio global” ponderado con los pesos configurados.</small>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="sec_observaciones">
+      <div class="card">
+        <h2>Observaciones, evidencias y acuerdos</h2>
+        <p>Esta sección se recomienda completar antes de la entrevista final.</p>
+        <div class="form-grid" style="grid-template-columns:1fr 1fr">
+          <div class="field"><label>Fortalezas identificadas</label><textarea id="n_fort" placeholder="Fortalezas observables, impacto y ejemplos."></textarea></div>
+          <div class="field"><label>Áreas de mejora</label><textarea id="n_mej" placeholder="Brechas, riesgos y causas probables."></textarea></div>
+          <div class="field"><label>Evidencias revisadas</label><textarea id="n_evi" placeholder="Lista de archivos, entregables, capturas, reportes, bitácoras, enlaces."></textarea></div>
+          <div class="field"><label>Plan de mejora (30/60/90 días)</label><textarea id="n_plan" placeholder="Acciones, responsables, recursos, indicadores y fechas."></textarea></div>
+          <div class="field" style="grid-column: span 2"><label>Acuerdos finales y compromisos</label><textarea id="n_acu" placeholder="Acuerdos de ratificación (o condicionamiento), metas, seguimiento y fechas de corte."></textarea></div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:16px">
+        <h2>Firmas (para imprimir)</h2>
+        <p>Al imprimir a PDF, estas líneas quedarán listas para firma autógrafa.</p>
+        <div class="hr"></div>
+        <div class="split" style="grid-template-columns:1fr 1fr">
+          <div style="padding:22px 10px 8px;text-align:center;border-top:2px solid rgba(0,0,0,.25)">
+            <b>Evaluado</b><div style="color:var(--muted)">Nombre y firma</div>
+          </div>
+          <div style="padding:22px 10px 8px;text-align:center;border-top:2px solid rgba(0,0,0,.25)">
+            <b>Dirección / Evaluador</b><div style="color:var(--muted)">Nombre y firma</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="sec_anexos">
+      <div class="card">
+        <h2>Anexos y control interno</h2>
+        <p>
+          Este bloque está pensado para integrar (si aplica) listas de verificación del cierre de mes, estructuras de archivo, bitácoras,
+          y supervisión de servicios generales. Mantén siempre la congruencia con documentos oficiales y protocolos internos firmados.
+        </p>
+        <div class="hr"></div>
+        <div class="note">
+          <b>Validación documental:</b> los campos precargados consideran inicio del addendum <b>2025-10-13</b> y período evaluado hasta <b>2026-01-29</b>. Ajusta si tu expediente institucional indica fechas distintas.
+        </div>
+      </div>
+    </section>
+
+    <div class="footer">
+      <div style="display:flex;justify-content:center;gap:10px;align-items:center;margin-bottom:10px">
+        <img src="assets/logo.png" alt="AF SCLC" style="width:34px;height:34px;object-fit:contain;border-radius:10px;background:#fff;border:1px solid var(--line);padding:5px">
+        <span><b>Alliance Française de San Cristóbal de Las Casas</b></span>
+      </div>
+      <div>Documento confidencial • ULTRA 2026 • Uso interno</div>
+    </div>
+  </div>
+
+  <script>
+/* AF SCLC — Instrumento Integral de Evaluación (ULTRA)
+   - Single-file friendly, no login
+   - Autosave (localStorage)
+   - Multi-rater: Auto / Coe / Dirección / Presidencia
+   - Charts: custom radar + bar (no external libs)
+*/
+const DATA = {"meta": {"institution": "Alliance Française de San Cristóbal de Las Casas", "doc_title": "Instrumento Integral de Evaluación — Período de Prueba", "version": "ULTRA 2026.1", "confidential": true}, "raters": [{"key": "auto", "label": "Autoevaluación"}, {"key": "coe", "label": "Coevaluación"}, {"key": "dir", "label": "Dirección"}, {"key": "pres", "label": "Presidencia"}], "scale": [{"value": 5, "label": "Excelente", "desc": "Supera ampliamente las expectativas. Cumplimiento íntegro, anticipación, cero no conformidades críticas."}, {"value": 4, "label": "Muy bueno", "desc": "Cumple con alta calidad y consistencia. Incidencias menores corregidas oportunamente."}, {"value": 3, "label": "Satisfactorio", "desc": "Cumple lo esencial. Requiere seguimiento y mejoras puntuales."}, {"value": 2, "label": "Insuficiente", "desc": "Cumplimiento irregular. Errores recurrentes o retrasos. Requiere plan correctivo inmediato."}, {"value": 1, "label": "Crítico", "desc": "No cumple estándares mínimos. Riesgo institucional o incumplimientos graves."}], "decision_thresholds": [{"min": 3.5, "label": "RATIFICAR", "tone": "green"}, {"min": 3.0, "label": "RATIFICAR CONDICIONADA", "tone": "amber"}, {"min": 0.0, "label": "NO RATIFICAR", "tone": "red"}], "areas": [{"key": "A", "name": "Comunicación institucional (según contrato)", "weight": 45, "description": "Funciones de comunicación institucional derivadas del contrato laboral vigente.", "criteria": [{"id": 1, "text": "Diseñar y ejecutar campañas de comunicación institucional en medios digitales y tradicionales.", "weight": null}, {"id": 2, "text": "Administrar la presencia digital de LA INSTITUCIÓN en redes sociales (Facebook, Instagram, X/Twitter, LinkedIn, TikTok y otras plataformas actuales).", "weight": null}, {"id": 3, "text": "Crear contenido gráfico y multimedia (diseño, fotografía, video, infografías) para difusión institucional.", "weight": null}, {"id": 4, "text": "Gestionar el sitio web institucional y mantenerlo actualizado.", "weight": null}, {"id": 5, "text": "Elaborar boletines, comunicados de prensa y materiales informativos institucionales.", "weight": null}, {"id": 6, "text": "Coordinar la cobertura comunicacional de eventos culturales y académicos.", "weight": null}, {"id": 7, "text": "Monitorear métricas de alcance, engagement y efectividad de campañas.", "weight": null}, {"id": 8, "text": "Mantener la identidad visual institucional en todas las comunicaciones.", "weight": null}, {"id": 9, "text": "Atender solicitudes de medios de comunicación y gestionar relaciones públicas.", "weight": null}, {"id": 10, "text": "Proponer estrategias innovadoras para fortalecer la presencia institucional.", "weight": null}]}}, {"key": "B", "name": "Auditoría financiera documental (según contrato)", "weight": 45, "description": "Funciones de auditoría documental/administrativa derivadas del contrato laboral vigente.", "criteria": [{"id": 1, "text": "Realizar auditorías documentales de arqueos de caja conforme a procedimientos establecidos.", "weight": null}, {"id": 2, "text": "Revisar y verificar conciliaciones bancarias periódicas.", "weight": null}, {"id": 3, "text": "Validar la correcta emisión, recepción y registro de Comprobantes Fiscales Digitales por Internet (CFDI).", "weight": null}, {"id": 4, "text": "Identificar inconsistencias, errores o irregularidades en la documentación financiera y reportarlas oportunamente.", "weight": null}, {"id": 5, "text": "Elaborar reportes de hallazgos de auditoría documental.", "weight": null}, {"id": 6, "text": "Proponer recomendaciones para mejorar controles internos administrativos.", "weight": null}, {"id": 7, "text": "Colaborar con el área administrativa en la implementación de mejoras en procesos financieros.", "weight": null}, {"id": 8, "text": "Resguardar la confidencialidad absoluta de la información financiera institucional.", "weight": null}, {"id": 9, "text": "DELIMITACIÓN IMPORTANTE: EL TRABAJADOR NO manejará fondos, NO ejecutará compras, NO firmará cheques, NO autorizará transferencias ni realizará operaciones financieras directas. Su función será exclusivamente de revisión, verificación documental y auditoría interna.", "weight": null}]}, {"key": "C", "name": "Funciones generales y conducta profesional (según contrato)", "weight": 10, "description": "Obligaciones transversales indicadas en el contrato (colaboración, confidencialidad, reportes, etc.).", "criteria": [{"id": 1, "text": "Cumplir con las políticas, reglamentos y procedimientos internos de LA INSTITUCIÓN.", "weight": null}, {"id": 2, "text": "Asistir puntualmente al centro de trabajo en el horario establecido.", "weight": null}, {"id": 3, "text": "Participar en reuniones de trabajo, capacitaciones y actividades institucionales cuando sea convocado.", "weight": null}, {"id": 4, "text": "Mantener una actitud profesional, ética y de colaboración con el equipo institucional.", "weight": null}, {"id": 5, "text": "Reportar al Director General y colaborar con las distintas áreas de LA INSTITUCIÓN.", "weight": null}]}, {"key": "D", "name": "Procesos operativos complementarios (protocolos internos)", "weight": 0, "description": "Bloque opcional para integrar procesos internos (p. ej., cierre de mes y supervisión de limpieza). El peso por defecto es 0% (puede activarse).", "criteria": [{"id": 1, "text": "Cierre de mes: ejecución del checklist y evidencias (CFDI/egresos/ingresos/archivo) en tiempo y forma; trazabilidad completa.", "weight": null}, {"id": 2, "text": "Cierre de mes: comunicación de incidencias críticas en ≤24h y propuesta de corrección.", "weight": null}, {"id": 3, "text": "Supervisión del personal de limpieza: seguimiento de rutinas, verificación por lista, reporte de incidencias y control de insumos.", "weight": null}, {"id": 4, "text": "Custodia y organización documental: estructura de carpetas, nomenclaturas, versionado, respaldo y acceso controlado.", "weight": null}]}]};
+
+const STORAGE_KEY = "AFSCLC_EVAL_ULTRA_V1";
+
+function $(sel, root=document){ return root.querySelector(sel); }
+function $all(sel, root=document){ return Array.from(root.querySelectorAll(sel)); }
+
+function fmt(n){ return (isFinite(n) ? n.toFixed(2) : "—"); }
+
+function toneFor(score){
+  if(!isFinite(score)) return {dot:"rgba(0,0,0,.2)", text:"#171717"};
+  if(score >= 3.5) return {dot:"var(--green)", text:"var(--green)"};
+  if(score >= 3.0) return {dot:"var(--amber)", text:"var(--amber)"};
+  return {dot:"var(--red)", text:"var(--red)"};
+}
+
+function decisionFor(score){
+  for(const t of DATA.decision_thresholds){
+    if(score >= t.min) return t;
+  }
+  return DATA.decision_thresholds[DATA.decision_thresholds.length-1];
+}
+
+function defaultState(){
+  const today = new Date();
+  const iso = today.toISOString().slice(0,10);
+  return {
+    meta: {
+      evaluado: "Cayro Oteb Valdivieso Ruiz",
+      puesto: "Coordinador de Comunicación y Auditoría Documental",
+      evaluador: "Miguel David Tillero Álvarez (Director General)",
+      fecha_evaluacion: iso,
+      periodo_inicio: "2025-10-13",
+      periodo_fin: "2026-01-29",
+      addendum_desde: "2025-10-13",
+      sede: "Av. La Almolonga 80, Barrio Santa Lucía, San Cristóbal de Las Casas, Chiapas",
+      confidencial: true,
+    },
+    weights: Object.fromEntries(DATA.areas.map(a=>[a.key, a.weight])),
+    scores: {}, // scores[area][criterionId][raterKey] = 1..5
+    notes: {
+      fortalezas: "",
+      mejoras: "",
+      evidencias: "",
+      plan: "",
+      acuerdos: "",
+    },
+    audit_trail: [] // {ts, msg}
+  };
+}
+
+function loadState(){
+  try{
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if(!raw) return defaultState();
+    const parsed = JSON.parse(raw);
+    return mergeDeep(defaultState(), parsed);
+  }catch(e){
+    console.warn("loadState failed", e);
+    return defaultState();
+  }
+}
+
+function saveState(){
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(STATE));
+  setStatus("Guardado ✔");
+}
+
+function setStatus(msg){
+  const el = $("#status");
+  if(!el) return;
+  el.textContent = msg;
+  clearTimeout(setStatus._t);
+  setStatus._t = setTimeout(()=>{ el.textContent = "Listo"; }, 1500);
+}
+
+function mergeDeep(target, source){
+  for(const k of Object.keys(source)){
+    if(source[k] && typeof source[k] === "object" && !Array.isArray(source[k])){
+      if(!target[k]) target[k] = {};
+      mergeDeep(target[k], source[k]);
+    }else{
+      target[k] = source[k];
+    }
+  }
+  return target;
+}
+
+let STATE = loadState();
+
+function audit(msg){
+  STATE.audit_trail.push({ts: new Date().toISOString(), msg});
+  if(STATE.audit_trail.length > 200) STATE.audit_trail.shift();
+}
+
+function init(){
+  // Tabs
+  $all(".tab").forEach(btn=>{
+    btn.addEventListener("click", ()=>{
+      const id = btn.dataset.tab;
+      $all(".tab").forEach(b=>b.setAttribute("aria-selected","false"));
+      btn.setAttribute("aria-selected","true");
+      $all(".section").forEach(s=>s.classList.remove("active"));
+      $("#"+id).classList.add("active");
+      window.scrollTo({top:0, behavior:"smooth"});
+      render();
+    });
+  });
+
+  // Meta fields
+  bindMeta();
+
+  // Build areas UI
+  buildAreas();
+
+  // Notes
+  bindNotes();
+
+  // Buttons
+  $("#btnExport").addEventListener("click", exportJSON);
+  $("#btnImport").addEventListener("click", ()=>$("#fileImport").click());
+  $("#fileImport").addEventListener("change", importJSON);
+  $("#btnReset").addEventListener("click", resetAll);
+  $("#btnPrint").addEventListener("click", ()=>window.print());
+  $("#btnExpand").addEventListener("click", expandAll);
+
+  // Weights
+  bindWeights();
+
+  render();
+  saveState();
+}
+
+function bindMeta(){
+  const map = {
+    evaluado:"#m_evaluado",
+    puesto:"#m_puesto",
+    evaluador:"#m_evaluador",
+    fecha_evaluacion:"#m_fecha",
+    periodo_inicio:"#m_inicio",
+    periodo_fin:"#m_fin",
+    addendum_desde:"#m_addendum",
+    sede:"#m_sede"
+  };
+  for(const [k, sel] of Object.entries(map)){
+    const el = $(sel);
+    el.value = STATE.meta[k] || "";
+    el.addEventListener("input", ()=>{
+      STATE.meta[k] = el.value;
+      audit("Meta actualizado: "+k);
+      saveState();
+      renderHeaderPills();
+    });
+  }
+  renderHeaderPills();
+}
+
+function bindNotes(){
+  const map = {
+    fortalezas:"#n_fort",
+    mejoras:"#n_mej",
+    evidencias:"#n_evi",
+    plan:"#n_plan",
+    acuerdos:"#n_acu"
+  };
+  for(const [k,sel] of Object.entries(map)){
+    const el=$(sel);
+    el.value = STATE.notes[k] || "";
+    el.addEventListener("input", ()=>{
+      STATE.notes[k]=el.value;
+      saveState();
+    });
+  }
+}
+
+function bindWeights(){
+  DATA.areas.forEach(a=>{
+    const el = $("#w_"+a.key);
+    if(!el) return;
+    el.value = (STATE.weights[a.key] ?? a.weight);
+    el.addEventListener("input", ()=>{
+      const v = parseFloat(el.value);
+      STATE.weights[a.key] = isFinite(v) ? v : 0;
+      saveState();
+      render();
+    });
+  });
+}
+
+function buildAreas(){
+  const root = $("#areasRoot");
+  root.innerHTML = "";
+  for(const area of DATA.areas){
+    const card = document.createElement("div");
+    card.className = "area expanded";
+    card.dataset.area = area.key;
+
+    const header = document.createElement("header");
+    header.innerHTML = `
+      <div class="title">
+        <div class="key">${area.key}</div>
+        <div>
+          <h3>${escapeHtml(area.name)}</h3>
+          <div class="meta">${escapeHtml(area.description || "")}</div>
+        </div>
+      </div>
+      <div class="scorebox">
+        <div class="score" id="areaScore-${area.key}">—</div>
+        <div class="dot" id="areaDot-${area.key}"></div>
+        <div class="chev">▾</div>
+      </div>
+    `;
+    header.addEventListener("click", ()=>{
+      card.classList.toggle("expanded");
+    });
+
+    const body = document.createElement("div");
+    body.className = "body";
+    body.innerHTML = buildAreaTable(area);
+
+    card.appendChild(header);
+    card.appendChild(body);
+    root.appendChild(card);
+
+    // bind selects
+    $all("select[data-area='"+area.key+"']", body).forEach(sel=>{
+      const areaKey = sel.dataset.area;
+      const critId = sel.dataset.crit;
+      const rater = sel.dataset.rater;
+      const stored = (((STATE.scores[areaKey]||{})[critId]||{})[rater]) ?? "";
+      sel.value = stored;
+      paintSelect(sel);
+      sel.addEventListener("change", ()=>{
+        const v = parseFloat(sel.value);
+        if(!STATE.scores[areaKey]) STATE.scores[areaKey]={};
+        if(!STATE.scores[areaKey][critId]) STATE.scores[areaKey][critId]={};
+        STATE.scores[areaKey][critId][rater] = (isFinite(v)? v : "");
+        paintSelect(sel);
+        audit(`Calificación ${areaKey}.${critId} (${rater}) = ${sel.value||"—"}`);
+        saveState();
+        render();
+      });
+    });
+  }
+}
+
+function buildAreaTable(area){
+  const head = `
+    <table class="table">
+      <thead>
+        <tr>
+          <th style="width:52%">Criterio (derivado de documentos oficiales)</th>
+          <th>Auto</th>
+          <th>Coe</th>
+          <th>Dir.</th>
+          <th>Pres.</th>
+          <th style="width:90px">Prom.</th>
+        </tr>
+      </thead>
+      <tbody>
+  `;
+  const rows = area.criteria.map(c=>{
+    const rid = String(c.id);
+    return `
+      <tr>
+        <td>
+          <div class="crit">
+            <div class="num">${rid}</div>
+            <div class="txt">
+              <b>${escapeHtml(c.text)}</b>
+              <span>Escala 1–5. Evidencias sugeridas: entregables, capturas, archivos, reportes, bitácoras.</span>
+            </div>
+          </div>
+        </td>
+        ${DATA.raters.map(r=>`
+          <td>
+            <select class="select" data-area="${area.key}" data-crit="${rid}" data-rater="${r.key}">
+              <option value="">—</option>
+              <option value="5">5</option>
+              <option value="4">4</option>
+              <option value="3">3</option>
+              <option value="2">2</option>
+              <option value="1">1</option>
+            </select>
+          </td>
+        `).join("")}
+        <td><div class="score" id="critAvg-${area.key}-${rid}">—</div></td>
+      </tr>
+    `;
+  }).join("");
+  const tail = "</tbody></table>";
+  return head + rows + tail;
+}
+
+function paintSelect(sel){
+  sel.classList.remove("v1","v2","v3","v4","v5");
+  const v = parseFloat(sel.value);
+  if(!isFinite(v)) return;
+  sel.classList.add("v"+String(v));
+}
+
+function computeCriterionAvg(areaKey, critId){
+  const entry = (((STATE.scores[areaKey]||{})[critId])||{});
+  const vals = DATA.raters.map(r=> parseFloat(entry[r.key])).filter(v=>isFinite(v));
+  if(!vals.length) return NaN;
+  return vals.reduce((a,b)=>a+b,0)/vals.length;
+}
+
+function computeAreaAvg(areaKey){
+  const area = DATA.areas.find(a=>a.key===areaKey);
+  const avgs = area.criteria.map(c=>computeCriterionAvg(areaKey, String(c.id))).filter(v=>isFinite(v));
+  if(!avgs.length) return NaN;
+  return avgs.reduce((a,b)=>a+b,0)/avgs.length;
+}
+
+function computeFinalAvg(){
+  let weightedSum = 0;
+  let wTotal = 0;
+  for(const area of DATA.areas){
+    const w = parseFloat(STATE.weights[area.key] ?? area.weight);
+    if(!(w>0)) continue;
+    const a = computeAreaAvg(area.key);
+    if(!isFinite(a)) continue;
+    weightedSum += a * (w/100);
+    wTotal += (w/100);
+  }
+  if(!(wTotal>0)) return NaN;
+  return weightedSum / wTotal;
+}
+
+function computeRaterAreaAvg(areaKey, raterKey){
+  const area = DATA.areas.find(a=>a.key===areaKey);
+  const vals=[];
+  for(const c of area.criteria){
+    const v = parseFloat((((STATE.scores[areaKey]||{})[String(c.id)]||{})[raterKey]));
+    if(isFinite(v)) vals.push(v);
+  }
+  if(!vals.length) return NaN;
+  return vals.reduce((a,b)=>a+b,0)/vals.length;
+}
+
+function computeRaterFinalAvg(raterKey){
+  let weightedSum = 0;
+  let wTotal = 0;
+  for(const area of DATA.areas){
+    const w = parseFloat(STATE.weights[area.key] ?? area.weight);
+    if(!(w>0)) continue;
+    const a = computeRaterAreaAvg(area.key, raterKey);
+    if(!isFinite(a)) continue;
+    weightedSum += a*(w/100);
+    wTotal += (w/100);
+  }
+  if(!(wTotal>0)) return NaN;
+  return weightedSum / wTotal;
+}
+
+function render(){
+  // criterion averages
+  for(const area of DATA.areas){
+    for(const c of area.criteria){
+      const id = String(c.id);
+      const avg = computeCriterionAvg(area.key, id);
+      const cell = $("#critAvg-"+area.key+"-"+id);
+      if(!cell) continue;
+      cell.textContent = fmt(avg);
+      const t = toneFor(avg);
+      cell.style.color = t.text;
+      cell.style.borderColor = "rgba(0,0,0,.10)";
+    }
+  }
+
+  // area averages
+  for(const area of DATA.areas){
+    const avg = computeAreaAvg(area.key);
+    const el = $("#areaScore-"+area.key);
+    const dot = $("#areaDot-"+area.key);
+    if(el){ el.textContent = fmt(avg); el.style.color = toneFor(avg).text; }
+    if(dot){ dot.style.background = toneFor(avg).dot; }
+    const dash = $("#kpi_"+area.key);
+    if(dash){ dash.textContent = fmt(avg); dash.style.color = toneFor(avg).text; }
+  }
+
+  const final = computeFinalAvg();
+  $("#kpi_final").textContent = fmt(final);
+  $("#kpi_final").style.color = toneFor(final).text;
+
+  const dec = decisionFor(isFinite(final)?final:0);
+  const pill = $("#decisionPill");
+  if(isFinite(final)){
+    pill.textContent = dec.label;
+    pill.style.borderColor = dec.tone==="green" ? "rgba(31,157,85,.35)" : dec.tone==="amber" ? "rgba(217,119,6,.35)" : "rgba(220,38,38,.35)";
+    pill.style.background = dec.tone==="green" ? "rgba(31,157,85,.10)" : dec.tone==="amber" ? "rgba(217,119,6,.10)" : "rgba(220,38,38,.10)";
+    pill.style.color = dec.tone==="green" ? "var(--green)" : dec.tone==="amber" ? "var(--amber)" : "var(--red)";
+  }else{
+    pill.textContent = "Pendiente";
+    pill.style.borderColor = "rgba(0,0,0,.12)";
+    pill.style.background = "rgba(0,0,0,.04)";
+    pill.style.color = "var(--muted)";
+  }
+
+  renderCharts();
+  renderHeaderPills();
+}
+
+function renderHeaderPills(){
+  $("#p_evaluado").textContent = STATE.meta.evaluado || "—";
+  $("#p_puesto").textContent = STATE.meta.puesto || "—";
+  $("#p_periodo").textContent = (STATE.meta.periodo_inicio && STATE.meta.periodo_fin)
+    ? `${STATE.meta.periodo_inicio} → ${STATE.meta.periodo_fin}`
+    : "—";
+}
+
+function exportJSON(){
+  const payload = {
+    exported_at: new Date().toISOString(),
+    data_version: DATA.meta.version,
+    data_schema: "AFSCLC_EVAL_ULTRA",
+    state: STATE,
+    rubric: DATA
+  };
+  const blob = new Blob([JSON.stringify(payload, null, 2)], {type:"application/json"});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = `AF_SCLC_Evaluacion_${(STATE.meta.evaluado||"Evaluado").replace(/\s+/g,"_")}_${new Date().toISOString().slice(0,10)}.json`;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  URL.revokeObjectURL(url);
+  setStatus("Exportado ✔");
+}
+
+function importJSON(ev){
+  const file = ev.target.files[0];
+  if(!file) return;
+  const reader = new FileReader();
+  reader.onload = () => {
+    try{
+      const payload = JSON.parse(reader.result);
+      if(payload.state){
+        STATE = mergeDeep(defaultState(), payload.state);
+        saveState();
+        // re-render all inputs/selects
+        bindMeta();
+        buildAreas();
+        bindNotes();
+        bindWeights();
+        render();
+        setStatus("Importado ✔");
+      }else{
+        alert("Archivo inválido: no contiene 'state'.");
+      }
+    }catch(e){
+      alert("No pude leer el JSON: " + e.message);
+    }finally{
+      ev.target.value = "";
+    }
+  };
+  reader.readAsText(file);
+}
+
+function resetAll(){
+  if(!confirm("¿Reiniciar toda la evaluación? Esto borrará calificaciones y observaciones en este navegador.")) return;
+  STATE = defaultState();
+  saveState();
+  bindMeta();
+  buildAreas();
+  bindNotes();
+  bindWeights();
+  render();
+  setStatus("Reiniciado ✔");
+}
+
+function expandAll(){
+  $all(".area").forEach(a=>a.classList.add("expanded"));
+  setStatus("Expandido ✔");
+  window.scrollTo({top:0, behavior:"smooth"});
+}
+
+/* ========== Charts (no libs) ========== */
+function renderCharts(){
+  renderRadarChart($("#radar"), buildRadarSeries());
+  renderBarChart($("#bars"), buildBarSeries());
+}
+
+function buildRadarSeries(){
+  // Radar: areas as axes, each rater as a polygon
+  const axes = DATA.areas.filter(a=>(STATE.weights[a.key]??a.weight) > 0 || a.key!=="D").map(a=>({key:a.key,label:a.key}));
+  const series = DATA.raters.map(r=>{
+    return {
+      name: r.label,
+      values: axes.map(ax=> computeRaterAreaAvg(ax.key, r.key))
+    };
+  });
+  return {axes, series};
+}
+
+function buildBarSeries(){
+  const vals = DATA.raters.map(r=>({label:r.label, value: computeRaterFinalAvg(r.key)}));
+  vals.push({label:"Promedio global", value: computeFinalAvg()});
+  return vals;
+}
+
+function clearCanvas(c){
+  const ctx = c.getContext("2d");
+  const dpr = window.devicePixelRatio || 1;
+  const w = c.clientWidth * dpr;
+  const h = c.clientHeight * dpr;
+  if(c.width !== w || c.height !== h){ c.width=w; c.height=h; }
+  ctx.clearRect(0,0,w,h);
+  return {ctx,w,h,dpr};
+}
+
+function renderRadarChart(canvas, payload){
+  if(!canvas) return;
+  const {ctx,w,h} = clearCanvas(canvas);
+  const pad = 44;
+  const cx = w/2, cy = h/2;
+  const radius = Math.min(w,h)/2 - pad;
+  const axes = payload.axes;
+  const n = axes.length || 1;
+
+  // background rings 1..5
+  ctx.save();
+  ctx.translate(cx, cy);
+  ctx.strokeStyle = "rgba(0,0,0,.10)";
+  ctx.lineWidth = 1;
+  for(let r=1;r<=5;r++){
+    ctx.beginPath();
+    ctx.arc(0,0, radius*(r/5), 0, Math.PI*2);
+    ctx.stroke();
+  }
+  // axes lines + labels
+  ctx.fillStyle = "rgba(0,0,0,.75)";
+  ctx.font = "12px " + getComputedStyle(document.documentElement).getPropertyValue("--sans");
+  for(let i=0;i<n;i++){
+    const ang = -Math.PI/2 + (Math.PI*2*i/n);
+    const x = Math.cos(ang)*radius;
+    const y = Math.sin(ang)*radius;
+    ctx.beginPath();
+    ctx.moveTo(0,0); ctx.lineTo(x,y); ctx.stroke();
+    const lx = Math.cos(ang)*(radius+16);
+    const ly = Math.sin(ang)*(radius+16);
+    ctx.fillText(axes[i].label, lx-4, ly+4);
+  }
+  ctx.restore();
+
+  const palette = [
+    "rgba(255,0,0,.55)",
+    "rgba(37,99,235,.55)",
+    "rgba(31,157,85,.55)",
+    "rgba(217,119,6,.55)",
+  ];
+  payload.series.forEach((s, idx)=>{
+    const col = palette[idx % palette.length];
+    const stroke = col.replace(".55",".95");
+    ctx.save();
+    ctx.translate(cx,cy);
+    ctx.beginPath();
+    for(let i=0;i<n;i++){
+      const v = s.values[i];
+      const vv = isFinite(v)? v : 0;
+      const r = radius*(vv/5);
+      const ang = -Math.PI/2 + (Math.PI*2*i/n);
+      const x = Math.cos(ang)*r;
+      const y = Math.sin(ang)*r;
+      if(i===0) ctx.moveTo(x,y); else ctx.lineTo(x,y);
+    }
+    ctx.closePath();
+    ctx.fillStyle = col;
+    ctx.strokeStyle = stroke;
+    ctx.lineWidth = 2;
+    ctx.fill();
+    ctx.stroke();
+    ctx.restore();
+  });
+
+  // Legend
+  ctx.save();
+  ctx.fillStyle = "rgba(0,0,0,.80)";
+  ctx.font = "12px " + getComputedStyle(document.documentElement).getPropertyValue("--sans");
+  let x = 14, y = 18;
+  payload.series.forEach((s, idx)=>{
+    const col = palette[idx % palette.length];
+    ctx.fillStyle = col.replace(".55",".95");
+    ctx.fillRect(x,y-10,10,10);
+    ctx.fillStyle = "rgba(0,0,0,.80)";
+    ctx.fillText(s.name, x+14, y-1);
+    y += 16;
+  });
+  ctx.restore();
+}
+
+function renderBarChart(canvas, vals){
+  if(!canvas) return;
+  const {ctx,w,h} = clearCanvas(canvas);
+  const padL=56, padR=18, padT=18, padB=40;
+  const innerW = w-padL-padR;
+  const innerH = h-padT-padB;
+  const maxV = 5;
+  const n = vals.length || 1;
+  const gap = 14;
+  const barW = (innerW - gap*(n-1))/n;
+
+  // grid
+  ctx.strokeStyle="rgba(0,0,0,.08)";
+  ctx.lineWidth=1;
+  for(let i=0;i<=5;i++){
+    const y=padT + innerH*(i/5);
+    ctx.beginPath(); ctx.moveTo(padL,y); ctx.lineTo(w-padR,y); ctx.stroke();
+  }
+  // y labels
+  ctx.fillStyle="rgba(0,0,0,.55)";
+  ctx.font="12px " + getComputedStyle(document.documentElement).getPropertyValue("--sans");
+  for(let i=0;i<=5;i++){
+    const val = (5-i);
+    const y=padT + innerH*(i/5);
+    ctx.fillText(String(val), 18, y+4);
+  }
+
+  // bars
+  vals.forEach((it, i)=>{
+    const v = isFinite(it.value)? it.value : 0;
+    const t = toneFor(it.value);
+    const x = padL + i*(barW+gap);
+    const bh = innerH*(v/maxV);
+    const y = padT + innerH - bh;
+    // bar
+    ctx.fillStyle = t.dot;
+    roundRect(ctx, x, y, barW, bh, 12, true, false);
+    // value
+    ctx.fillStyle = "rgba(0,0,0,.80)";
+    ctx.font="12px " + getComputedStyle(document.documentElement).getPropertyValue("--mono");
+    ctx.fillText(fmt(it.value), x + barW/2 - 14, y - 6);
+    // label
+    ctx.fillStyle="rgba(0,0,0,.70)";
+    ctx.font="12px " + getComputedStyle(document.documentElement).getPropertyValue("--sans");
+    wrapText(ctx, it.label, x, padT+innerH+18, barW, 12);
+  });
+}
+
+function roundRect(ctx, x, y, w, h, r, fill, stroke){
+  if(w<2*r) r=w/2;
+  if(h<2*r) r=h/2;
+  ctx.beginPath();
+  ctx.moveTo(x+r, y);
+  ctx.arcTo(x+w, y, x+w, y+h, r);
+  ctx.arcTo(x+w, y+h, x, y+h, r);
+  ctx.arcTo(x, y+h, x, y, r);
+  ctx.arcTo(x, y, x+w, y, r);
+  ctx.closePath();
+  if(fill) ctx.fill();
+  if(stroke) ctx.stroke();
+}
+
+function wrapText(ctx, text, x, y, maxWidth, lineHeight){
+  const words = (text||"").split(/\s+/);
+  let line = "";
+  let yy = y;
+  for(let n=0;n<words.length;n++){
+    const testLine = line + words[n] + " ";
+    const metrics = ctx.measureText(testLine);
+    if(metrics.width > maxWidth && n>0){
+      ctx.fillText(line.trim(), x, yy);
+      line = words[n] + " ";
+      yy += lineHeight;
+    }else{
+      line = testLine;
+    }
+  }
+  ctx.fillText(line.trim(), x, yy);
+}
+
+function escapeHtml(s){
+  return String(s)
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("'","&#039;");
+}
+
+// Start
+document.addEventListener("DOMContentLoaded", init);
+</script>
+</body>
+</html>
